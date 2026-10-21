@@ -41,7 +41,7 @@ export function Reviews({ content, reviews, summary }: ReviewsProps) {
       <SectionHeader id="avaliacoes-titulo" eyebrow={content.eyebrow} title={content.title} />
 
       {hasSummary && (
-        <p className="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center text-muted">
+        <p className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center text-base text-muted sm:mt-6 sm:text-lg">
           <span className="flex items-center gap-1 text-star" aria-hidden="true">
             {Array.from({ length: 5 }, (_, index) => (
               <Icon key={index} name="star" size={16} />
@@ -59,7 +59,7 @@ export function Reviews({ content, reviews, summary }: ReviewsProps) {
       <ReviewsCarousel slides={slides} />
 
       {summary.profileUrl && (
-        <p className="mt-10 text-center">
+        <p className="mt-8 text-center sm:mt-10">
           <a
             href={summary.profileUrl}
             target="_blank"

@@ -20,7 +20,7 @@ export function SiteHeader({ name, oab, logo, navigation, whatsappHref }: SiteHe
 
   return (
     <header className="tone-dark sticky top-0 z-40 border-b border-white/8 bg-navy/95 backdrop-blur supports-[backdrop-filter]:bg-navy/90">
-      <Container className="flex min-h-20 items-center justify-between gap-6 lg:min-h-22">
+      <Container className="flex min-h-16 items-center justify-between gap-4 sm:min-h-20 lg:min-h-22">
         <Link href="/#inicio" className="no-underline" aria-label={`${name} Advocacia, ir para o início`}>
           <BrandMark logo={logo} title={name} subtitle={`Advocacia · ${oab}`} />
         </Link>

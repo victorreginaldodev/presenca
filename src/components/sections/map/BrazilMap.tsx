@@ -75,7 +75,7 @@ export function BrazilMap({ legendReach, legendOffice, className = "" }: BrazilM
         </g>
       </svg>
 
-      <figcaption className="mt-8 flex flex-col items-center gap-3 text-base text-muted sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-8">
+      <figcaption className="mt-6 flex flex-col items-center gap-2.5 text-[15px] text-muted sm:mt-8 sm:gap-3 sm:text-base sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-8">
         <span className="flex items-center gap-2.5 whitespace-nowrap">
           <span aria-hidden="true" className="size-3 flex-none rounded-full bg-gold-strong" />
           {legendReach}

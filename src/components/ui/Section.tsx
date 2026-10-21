@@ -22,7 +22,7 @@ export function Section({ id, tone = "light", labelledBy, className = "", childr
     <section
       id={id}
       aria-labelledby={labelledBy}
-      className={`scroll-mt-20 py-24 sm:py-28 lg:py-36 ${tones[tone]} ${className}`}
+      className={`py-16 sm:py-24 lg:py-32 ${tones[tone]} ${className}`}
     >
       <Container>{children}</Container>
     </section>
@@ -30,7 +30,13 @@ export function Section({ id, tone = "light", labelledBy, className = "", childr
 }
 
 export function Container({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <div className={`mx-auto w-full max-w-site px-5 sm:px-8 ${className}`}>{children}</div>;
+  return (
+    <div
+      className={`mx-auto w-full max-w-site pr-[max(1.25rem,env(safe-area-inset-right))] pl-[max(1.25rem,env(safe-area-inset-left))] sm:pr-[max(2rem,env(safe-area-inset-right))] sm:pl-[max(2rem,env(safe-area-inset-left))] ${className}`}
+    >
+      {children}
+    </div>
+  );
 }
 
 interface SectionHeaderProps {
@@ -45,12 +51,12 @@ interface SectionHeaderProps {
 export function SectionHeader({ id, eyebrow, title, subtitle, align = "center" }: SectionHeaderProps) {
   const alignClass = align === "center" ? "mx-auto items-center text-center" : "items-start";
   return (
-    <div className={`flex max-w-3xl flex-col gap-5 ${alignClass}`}>
+    <div className={`flex max-w-3xl flex-col gap-4 sm:gap-5 ${alignClass}`}>
       <p className="eyebrow">{eyebrow}</p>
       <h2 id={id} className="heading-2">
         {title}
       </h2>
-      {subtitle && <p className="text-xl text-muted [.tone-dark_&]:text-mist">{subtitle}</p>}
+      {subtitle && <p className="lead text-muted [.tone-dark_&]:text-mist">{subtitle}</p>}
     </div>
   );
 }

@@ -15,8 +15,8 @@ const variants: Record<Variant, string> = {
 };
 
 const sizes: Record<Size, string> = {
-  md: "min-h-13 gap-2.5 rounded-xl px-6 py-3 text-[17px]",
-  lg: "min-h-15 gap-3 rounded-xl px-8 py-4 text-lg sm:text-[19px]",
+  md: "min-h-12 gap-2.5 rounded-xl px-5 py-3 text-base sm:min-h-13 sm:px-6 sm:text-[17px]",
+  lg: "min-h-14 gap-3 rounded-xl px-5 py-3.5 text-[17px] sm:min-h-15 sm:px-8 sm:py-4 sm:text-[19px]",
 };
 
 interface ButtonLinkProps {
@@ -48,7 +48,7 @@ export function ButtonLink({
       href={href}
       aria-label={ariaLabel}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-      className={`inline-flex max-w-full items-center justify-center text-center leading-tight font-bold no-underline transition-colors motion-reduce:transition-none ${variants[variant]} ${sizes[size]} ${className}`}
+      className={`inline-flex max-w-full touch-manipulation items-center justify-center text-center leading-tight font-bold no-underline transition-colors motion-reduce:transition-none ${variants[variant]} ${sizes[size]} ${className}`}
     >
       {iconStart && <Icon name={iconStart} size={22} className="shrink-0" />}
       <span className="text-balance">{children}</span>

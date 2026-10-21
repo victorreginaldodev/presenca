@@ -47,7 +47,19 @@
   }
 
   body {
-    @apply bg-white font-sans text-lg leading-[1.7] text-ink antialiased;
+    @apply bg-white font-sans text-[17px] leading-[1.65] text-ink antialiased sm:text-lg sm:leading-[1.7];
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Âncoras param abaixo do cabeçalho fixo (64px no celular, 88px no desktop). */
+  [id] {
+    scroll-margin-top: 4.5rem;
+  }
+
+  @media (min-width: 64rem) {
+    [id] {
+      scroll-margin-top: 6rem;
+    }
   }
 
   a {
@@ -67,7 +79,7 @@
 
 @layer components {
   .eyebrow {
-    @apply text-sm font-bold tracking-[0.14em] text-gold-dark uppercase;
+    @apply text-[13px] font-bold tracking-[0.12em] text-gold-dark uppercase sm:text-sm sm:tracking-[0.14em];
   }
 
   .tone-dark .eyebrow {
@@ -75,11 +87,16 @@
   }
 
   .heading-1 {
-    @apply text-[2.375rem] leading-[1.12] font-bold tracking-[-0.015em] text-balance sm:text-5xl lg:text-[3.5rem];
+    @apply text-[2.125rem] leading-[1.15] font-bold tracking-[-0.015em] text-balance min-[400px]:text-[2.375rem] sm:text-5xl sm:leading-[1.12] lg:text-[3.5rem];
   }
 
   .heading-2 {
-    @apply text-[2rem] leading-[1.15] font-bold tracking-[-0.01em] text-balance sm:text-[2.5rem] lg:text-[2.75rem];
+    @apply text-[1.75rem] leading-[1.2] font-bold tracking-[-0.01em] text-balance min-[400px]:text-[1.875rem] sm:text-[2.5rem] sm:leading-[1.15] lg:text-[2.75rem];
+  }
+
+  /* Texto de apoio abaixo dos títulos de seção. */
+  .lead {
+    @apply text-lg leading-relaxed sm:text-xl;
   }
 }
 

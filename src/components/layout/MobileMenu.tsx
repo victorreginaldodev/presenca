@@ -21,6 +21,9 @@ export function MobileMenu({ links, whatsappHref }: MobileMenuProps) {
     if (!open) return;
 
     panelRef.current?.querySelector("a")?.focus();
+    // Trava a rolagem da página por baixo do menu aberto.
+    const { overflow } = document.body.style;
+    document.body.style.overflow = "hidden";
 
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
@@ -39,6 +42,7 @@ export function MobileMenu({ links, whatsappHref }: MobileMenuProps) {
     return () => {
       document.removeEventListener("keydown", onKeyDown);
       desktop.removeEventListener("change", onBreakpoint);
+      document.body.style.overflow = overflow;
     };
   }, [open]);
 
@@ -51,25 +55,25 @@ export function MobileMenu({ links, whatsappHref }: MobileMenuProps) {
         aria-controls={panelId}
         aria-label={open ? "Fechar menu" : "Abrir menu"}
         onClick={() => setOpen((value) => !value)}
-        className="flex size-13 items-center justify-center rounded-xl border-2 border-white/35 text-white"
+        className="-mr-1 flex size-12 touch-manipulation items-center justify-center rounded-xl border-2 border-white/35 text-white"
       >
-        <Icon name={open ? "close" : "menu"} size={26} strokeWidth={2.4} />
+        <Icon name={open ? "close" : "menu"} size={24} strokeWidth={2.4} />
       </button>
 
       <div
         ref={panelRef}
         id={panelId}
         hidden={!open}
-        className="absolute inset-x-0 top-full max-h-[calc(100dvh-5rem)] overflow-y-auto border-b border-white/10 bg-navy shadow-xl"
+        className="absolute inset-x-0 top-full h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain bg-navy sm:h-auto sm:max-h-[calc(100dvh-5rem)] sm:border-b sm:border-white/10 sm:shadow-xl"
       >
-        <nav aria-label="Menu principal" className="mx-auto max-w-site px-5 pt-2 pb-8 sm:px-8">
+        <nav aria-label="Menu principal" className="mx-auto max-w-site px-5 pt-2 pb-[max(2rem,env(safe-area-inset-bottom))] sm:px-8">
           <ul className="flex flex-col">
             {links.map((link) => (
               <li key={link.href} className="border-b border-white/10">
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="flex min-h-15 items-center text-xl font-semibold text-white no-underline"
+                  className="flex min-h-14 items-center text-lg font-semibold text-white no-underline sm:min-h-15 sm:text-xl"
                 >
                   {link.label}
                 </Link>

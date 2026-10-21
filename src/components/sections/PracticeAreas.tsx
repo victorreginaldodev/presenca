@@ -21,35 +21,35 @@ export function PracticeAreas({ content, areas, closingHref }: PracticeAreasProp
     <Section id="atuacao" labelledBy="atuacao-titulo">
       <SectionHeader id="atuacao-titulo" eyebrow={content.eyebrow} title={content.title} subtitle={content.subtitle} />
 
-      <ul className="mt-16 grid gap-8 md:grid-cols-2 lg:mt-20 lg:gap-10">
+      <ul className="mt-10 grid gap-6 sm:mt-14 md:grid-cols-2 md:gap-8 lg:mt-20 lg:gap-10">
         {areas.map((area) => (
           <li key={area.id}>
-            <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-white">
+            <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-white sm:rounded-3xl">
               <div className="relative">
                 <Image
                   src={area.image.url}
                   alt={area.image.alt}
                   width={area.image.width}
                   height={area.image.height}
-                  sizes="(min-width: 1152px) 556px, (min-width: 768px) 50vw, 100vw"
-                  className="aspect-[2/1] h-auto w-full object-cover"
+                  sizes="(min-width: 1152px) 556px, (min-width: 768px) 50vw, calc(100vw - 2.5rem)"
+                  className="aspect-[16/9] h-auto w-full object-cover sm:aspect-[2/1]"
                 />
-                <span className="absolute top-5 left-5 rounded-full bg-white/95 px-3.5 py-1.5 text-sm font-bold text-navy">
+                <span className="absolute top-4 left-4 rounded-full bg-white/95 px-3 py-1 text-[13px] font-bold text-navy sm:top-5 sm:left-5 sm:px-3.5 sm:py-1.5 sm:text-sm">
                   {fieldLabels[area.field]}
                 </span>
               </div>
-              <div className="flex flex-1 flex-col gap-5 p-7 sm:p-9">
-                <div className="flex items-center gap-4">
-                  <span className="flex size-12 flex-none items-center justify-center rounded-xl bg-gold-soft text-gold-dark">
+              <div className="flex flex-1 flex-col gap-4 p-5 sm:gap-5 sm:p-9">
+                <div className="flex items-center gap-3.5 sm:gap-4">
+                  <span className="flex size-11 flex-none items-center justify-center rounded-xl bg-gold-soft text-gold-dark">
                     <Icon name={area.icon} size={24} />
                   </span>
-                  <h3 className="text-2xl leading-tight font-bold text-navy">{area.title}</h3>
+                  <h3 className="text-[1.375rem] leading-tight font-bold text-navy sm:text-2xl">{area.title}</h3>
                 </div>
                 <p className="text-muted">{area.summary}</p>
-                <ul className="flex flex-col gap-2.5">
+                <ul className="flex flex-col gap-2">
                   {area.situations.map((situation) => (
-                    <li key={situation} className="flex items-start gap-3 text-[17px] text-ink">
-                      <Icon name="check" size={20} strokeWidth={2.5} className="mt-1 flex-none text-gold-dark" />
+                    <li key={situation} className="flex items-start gap-3 text-base leading-snug text-ink sm:text-[17px] sm:leading-normal">
+                      <Icon name="check" size={20} strokeWidth={2.5} className="mt-0.5 flex-none text-gold-dark sm:mt-1" />
                       {situation}
                     </li>
                   ))}
@@ -59,7 +59,7 @@ export function PracticeAreas({ content, areas, closingHref }: PracticeAreasProp
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${content.linkLabel}: ${area.title} (abre o WhatsApp em nova aba)`}
-                  className="group mt-auto inline-flex min-h-12 w-fit items-center gap-2 pt-2 font-bold text-navy underline decoration-gold decoration-2 underline-offset-8 hover:text-gold-dark"
+                  className="group mt-auto inline-flex min-h-12 w-fit touch-manipulation items-center gap-2 pt-1 font-bold sm:pt-2 text-navy underline decoration-gold decoration-2 underline-offset-8 hover:text-gold-dark"
                 >
                   {content.linkLabel}
                   <Icon
@@ -74,14 +74,15 @@ export function PracticeAreas({ content, areas, closingHref }: PracticeAreasProp
         ))}
       </ul>
 
-      <div className="mx-auto mt-20 flex max-w-3xl flex-col items-center gap-7 text-center">
-        <p className="text-xl text-muted">{content.closingText}</p>
+      <div className="mx-auto mt-12 flex max-w-3xl flex-col items-center gap-6 text-center sm:mt-20 sm:gap-7">
+        <p className="lead text-muted">{content.closingText}</p>
         <ButtonLink
           href={closingHref}
           external
           size="lg"
           variant="navy"
           iconStart="whatsapp"
+          className="w-full sm:w-fit"
           ariaLabel={`${content.closingCta.label} pelo WhatsApp (abre em nova aba)`}
         >
           {content.closingCta.label}

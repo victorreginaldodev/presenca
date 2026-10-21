@@ -52,7 +52,7 @@ export function ReviewsCarousel({ slides }: { slides: ReviewSlide[] }) {
       aria-roledescription="carrossel"
       aria-label="Avaliações de clientes"
       onKeyDown={onKeyDown}
-      className="mx-auto mt-14 max-w-3xl lg:mt-16"
+      className="mx-auto mt-10 max-w-3xl sm:mt-14 lg:mt-16"
     >
       <div
         aria-live="polite"
@@ -75,16 +75,16 @@ export function ReviewsCarousel({ slides }: { slides: ReviewSlide[] }) {
                 active ? "opacity-100" : "pointer-events-none opacity-0"
               }`}
             >
-              <Icon name="quote" size={40} strokeWidth={1.5} className="text-gold" />
-              <span role="img" aria-label={`Nota ${slide.rating} de 5`} className="mt-6 flex gap-1 text-star">
+              <Icon name="quote" size={36} strokeWidth={1.5} className="text-gold sm:size-10" />
+              <span role="img" aria-label={`Nota ${slide.rating} de 5`} className="mt-4 flex gap-1 text-star sm:mt-6">
                 {Array.from({ length: 5 }, (_, star) => (
                   <Icon key={star} name="star" size={18} className={star < slide.rating ? "" : "opacity-25"} />
                 ))}
               </span>
-              <blockquote className="mt-6 text-xl leading-relaxed text-pretty text-ink sm:text-2xl sm:leading-relaxed">
+              <blockquote className="mt-4 text-lg leading-relaxed text-pretty text-ink sm:mt-6 sm:text-2xl sm:leading-relaxed">
                 {slide.text}
               </blockquote>
-              <figcaption className="mt-8 flex items-center gap-3.5">
+              <figcaption className="mt-6 flex items-center gap-3.5 sm:mt-8">
                 <span
                   aria-hidden="true"
                   className="flex size-11 flex-none items-center justify-center rounded-full bg-navy text-sm font-bold text-white"
@@ -105,7 +105,7 @@ export function ReviewsCarousel({ slides }: { slides: ReviewSlide[] }) {
       </div>
 
       {total > 1 && (
-        <div className="mt-10 flex items-center justify-center gap-5">
+        <div className="mt-8 flex items-center justify-center gap-2 sm:mt-10 sm:gap-5">
           <button
             type="button"
             aria-label="Avaliação anterior"
@@ -114,7 +114,7 @@ export function ReviewsCarousel({ slides }: { slides: ReviewSlide[] }) {
           >
             <Icon name="arrow-left" size={20} />
           </button>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center">
             {slides.map((slide, index) => (
               <button
                 key={slide.id}
@@ -122,7 +122,7 @@ export function ReviewsCarousel({ slides }: { slides: ReviewSlide[] }) {
                 aria-label={`Ver avaliação ${index + 1} de ${total}`}
                 aria-current={index === current}
                 onClick={() => go(index)}
-                className="group flex size-6 items-center justify-center"
+                className="group flex h-11 w-8 touch-manipulation items-center justify-center"
               >
                 <span
                   className={`block h-1.5 rounded-full transition-all duration-300 motion-reduce:transition-none ${

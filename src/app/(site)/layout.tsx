@@ -50,6 +50,8 @@ export const viewport: Viewport = {
   themeColor: "#0c1726",
   width: "device-width",
   initialScale: 1,
+  // Ocupa a tela toda nos celulares com entalhe; as margens seguras ficam no CSS.
+  viewportFit: "cover",
 };
 
 export default async function SiteLayout({ children }: { children: React.ReactNode }) {

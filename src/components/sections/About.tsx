@@ -19,29 +19,29 @@ export function About({ content, profile, ctaHref }: AboutProps) {
       <div
         className={
           photo
-            ? "grid items-center gap-16 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-24"
+            ? "grid items-center gap-10 sm:gap-16 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-24"
             : "mx-auto max-w-3xl"
         }
       >
         {photo && (
-          <div className="mx-auto w-full max-w-[28rem]">
+          <div className="mx-auto w-full max-w-[20rem] sm:max-w-[28rem]">
             <Image
               src={photo.url}
               alt={photo.alt}
               width={photo.width}
               height={photo.height}
-              sizes="(min-width: 1024px) 448px, 90vw"
-              className="aspect-[4/5] h-auto w-full rounded-[28px] object-cover object-top"
+              sizes="(min-width: 640px) 448px, 320px"
+              className="aspect-[4/5] h-auto w-full rounded-3xl object-cover object-top sm:rounded-[28px]"
             />
           </div>
         )}
 
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-4 sm:gap-6">
           <p className="eyebrow">{content.eyebrow}</p>
           <h2 id="sobre-titulo" className="heading-2 text-navy">
             {content.title}
           </h2>
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-4 sm:gap-5">
             {profile.bio.map((paragraph) => (
               <p key={paragraph} className="text-muted">
                 {paragraph}
@@ -50,7 +50,7 @@ export function About({ content, profile, ctaHref }: AboutProps) {
           </div>
 
           {profile.credentials.length > 0 && (
-            <div className="mt-4 rounded-2xl border border-line p-7">
+            <div className="mt-4 rounded-2xl border border-line p-5 sm:p-7">
               <h3 className="text-xl font-bold text-navy">{content.credentialsTitle}</h3>
               <dl className="mt-5 grid gap-5 sm:grid-cols-2">
                 {profile.credentials.map((item) => (
@@ -63,15 +63,15 @@ export function About({ content, profile, ctaHref }: AboutProps) {
             </div>
           )}
 
-          <div className="mt-6 border-t border-line pt-10">
+          <div className="mt-4 border-t border-line pt-8 sm:mt-6 sm:pt-10">
             <h3 className="text-xl font-bold text-navy">{content.valuesTitle}</h3>
-            <ul className="mt-7 grid gap-x-8 gap-y-5 sm:grid-cols-2">
+            <ul className="mt-5 grid gap-x-8 gap-y-3.5 sm:mt-7 sm:grid-cols-2 sm:gap-y-5">
               {profile.values.map((value) => (
-                <li key={value.label} className="flex items-center gap-4">
-                  <span className="flex size-11 flex-none items-center justify-center rounded-full bg-gold-soft text-gold-dark">
-                    <Icon name={value.icon} size={22} />
+                <li key={value.label} className="flex items-center gap-3.5 sm:gap-4">
+                  <span className="flex size-10 flex-none sm:size-11 items-center justify-center rounded-full bg-gold-soft text-gold-dark">
+                    <Icon name={value.icon} size={20} />
                   </span>
-                  <span className="text-lg font-semibold text-navy">{value.label}</span>
+                  <span className="text-[17px] font-semibold text-navy sm:text-lg">{value.label}</span>
                 </li>
               ))}
             </ul>
@@ -83,7 +83,7 @@ export function About({ content, profile, ctaHref }: AboutProps) {
             size="lg"
             variant="navy"
             iconStart="whatsapp"
-            className="mt-6 w-full sm:w-fit"
+            className="mt-4 w-full sm:mt-6 sm:w-fit"
             ariaLabel={`${content.cta.label} pelo WhatsApp (abre em nova aba)`}
           >
             {content.cta.label}
