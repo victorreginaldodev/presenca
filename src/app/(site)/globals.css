@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-nunito-sans), "Segoe UI", system-ui, sans-serif;
+
+  --color-navy: #0c1726;
+  --color-navy-soft: #13233a;
+  --color-navy-line: #23354f;
+  /* Dourado do logo */
+  --color-gold: #d7c57b;
+  --color-gold-hover: #e4d59a;
+  --color-gold-dark: #7d621c;
+  --color-gold-strong: #c4a54f;
+  --color-gold-soft: #f8f3e3;
+  --color-gold-light: #efe2b0;
+  --color-ink: #14181f;
+  --color-muted: #4a5160;
+  --color-line: #e3e6eb;
+  --color-mist: #c9d1dc;
+  --color-mist-light: #e4e8ee;
+  --color-surface: #f5f6f8;
+  --color-map: #d5dde8;
+  --color-star: #b07f1f;
+  --color-whatsapp: #1e8449;
+
+  --container-site: 72rem;
+}
+
+@layer base {
+  :root {
+    --focus-ring: var(--color-navy);
+  }
+
+  .tone-dark {
+    --focus-ring: var(--color-gold);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    @apply bg-white font-sans text-lg leading-[1.7] text-ink antialiased;
+  }
+
+  a {
+    @apply text-navy underline-offset-4 hover:text-gold-dark;
+  }
+
+  .tone-dark a:not([class*="bg-"]) {
+    @apply hover:text-gold-light;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply text-sm font-bold tracking-[0.14em] text-gold-dark uppercase;
+  }
+
+  .tone-dark .eyebrow {
+    @apply text-gold;
+  }
+
+  .heading-1 {
+    @apply text-[2.375rem] leading-[1.12] font-bold tracking-[-0.015em] text-balance sm:text-5xl lg:text-[3.5rem];
+  }
+
+  .heading-2 {
+    @apply text-[2rem] leading-[1.15] font-bold tracking-[-0.01em] text-balance sm:text-[2.5rem] lg:text-[2.75rem];
+  }
+}
+
+@keyframes map-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+/* Link para pular direto ao conteúdo, visível só ao receber foco. */
+.skip-link {
+  @apply absolute top-2 left-2 z-100 -translate-y-24 rounded-lg bg-gold px-4 py-3 font-bold text-navy no-underline;
+}
+
+.skip-link:focus {
+  @apply translate-y-0;
+}
