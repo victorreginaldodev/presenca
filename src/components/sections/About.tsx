@@ -70,7 +70,7 @@ export function About({ content, profile, ctaHref }: AboutProps) {
 
           <div className="mt-4 border-t border-navy-line pt-8 sm:mt-6 sm:pt-10">
             <h3 className="text-xl font-bold">{content.valuesTitle}</h3>
-            <ul className="mt-5 grid gap-x-8 gap-y-3.5 sm:mt-7 sm:grid-cols-2 sm:gap-y-5">
+            <ul className="mt-5 flex flex-col gap-3.5 sm:mt-7 sm:gap-5">
               {profile.values.map((value) => (
                 <li key={value.label} className="flex items-center gap-3.5 sm:gap-4">
                   <span className="flex size-10 flex-none items-center justify-center rounded-full bg-navy-soft text-gold ring-1 ring-navy-line sm:size-11">

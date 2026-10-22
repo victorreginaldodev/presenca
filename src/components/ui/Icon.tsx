@@ -2,6 +2,7 @@ import {
   Armchair,
   ArrowLeft,
   ArrowRight,
+  Bandage,
   BookOpen,
   BriefcaseBusiness,
   Check,
@@ -9,6 +10,7 @@ import {
   Eye,
   HardHat,
   HeartPulse,
+  Info,
   Mail,
   MapPin,
   Menu,
@@ -54,6 +56,8 @@ const lucide: Record<Exclude<IconName, BrandIcon>, LucideIcon> = {
   menu: Menu,
   close: X,
   star: Star,
+  injury: Bandage,
+  info: Info,
 };
 
 type BrandIcon = "whatsapp" | "instagram" | "google";

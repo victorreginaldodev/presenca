@@ -29,6 +29,12 @@ export function LegalServiceJsonLd({ settings, profile, practiceAreas }: LegalSe
       postalCode: settings.address.postalCode,
       addressCountry: "BR",
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: settings.address.latitude,
+      longitude: settings.address.longitude,
+    },
+    hasMap: settings.address.googleMapsUrl,
     employee: { "@type": "Person", name: profile.name, jobTitle: "Advogado" },
     knowsAbout: practiceAreas.map((area) => area.title),
     logo: new URL(settings.logo.url, url).toString(),

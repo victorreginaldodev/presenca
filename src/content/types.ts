@@ -37,7 +37,9 @@ export type IconName =
   | "arrow-left"
   | "menu"
   | "close"
-  | "star";
+  | "star"
+  | "injury"
+  | "info";
 
 /** Referência a uma imagem (equivale a um documento da collection `media`). */
 export interface Media {
@@ -53,6 +55,11 @@ export interface Address {
   city: string;
   state: string;
   postalCode: string;
+  /** Link do perfil do escritório no Google Maps (abre o estabelecimento, não uma busca). */
+  googleMapsUrl: string;
+  /** Coordenadas do escritório, usadas no Waze. */
+  latitude: number;
+  longitude: number;
 }
 
 export interface ServiceMode {
@@ -134,7 +141,10 @@ export interface PracticeArea {
   summary: string;
   /** Situações que ajudam o visitante a se reconhecer. */
   situations: string[];
-  image: Media;
+  /** Frase de fechamento abaixo da lista, opcional. */
+  note?: string;
+  /** Sem imagem, o card mostra só o texto. */
+  image: Media | null;
   /** Mensagem já preenchida no WhatsApp ao clicar na área. */
   whatsappMessage: string;
   order: number;
@@ -185,6 +195,8 @@ export interface HomePage {
     title: string;
     subtitle: string;
     steps: { title: string; text: string }[];
+    /** Aviso em destaque, fora da linha do tempo. */
+    notice: string;
     cta: CallToAction;
   };
   about: {

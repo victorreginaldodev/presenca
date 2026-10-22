@@ -4,7 +4,7 @@ import type { SiteSettings } from "../types";
 export const siteSettings: SiteSettings = {
   siteName: "Fernando Araujo Advocacia",
   description:
-    "Advogado com atuação em Direito Previdenciário e Trabalhista. Aposentadoria, auxílio-doença, acidente de trabalho e rescisão. Atendimento em todo o Brasil, sem sair de casa, e no escritório em Santa Juliana-MG.",
+    "Advogado especialista em Direito Trabalhista e Previdenciário. Aposentadoria, auxílio-doença, auxílio-acidente, acidente de trabalho e ações trabalhistas. Atendimento em todo o Brasil.",
   tagline:
     "Advocacia previdenciária e trabalhista com atendimento próximo, linguagem simples e retorno frequente sobre o seu caso.",
   oab: "OAB/MG 235.682",
@@ -24,17 +24,22 @@ export const siteSettings: SiteSettings = {
     instagramUrl: "https://www.instagram.com/fernandoaraujoo.adv/",
   },
   address: {
-    street: "Rua 26 de Outubro, 146",
+    // Por extenso: com "26", a busca do Google Maps não encontrava o escritório.
+    street: "Rua Vinte e Seis de Outubro, 146",
     neighborhood: "Bairro Palmeiras",
     city: "Santa Juliana",
     state: "MG",
     postalCode: "38175-000",
+    // Perfil do escritório no Google (o mesmo das avaliações).
+    googleMapsUrl: "https://www.google.com/maps?cid=10236819031622485583",
+    latitude: -19.3085586,
+    longitude: -47.5282509,
   },
   serviceModes: [
     {
       icon: "video",
       title: "Sem sair de casa, em todo o Brasil",
-      description: "Por WhatsApp, ligação ou chamada de vídeo, de onde você estiver.",
+      description: "Por WhatsApp ou chamada de vídeo, de onde você estiver.",
     },
     {
       icon: "pin",

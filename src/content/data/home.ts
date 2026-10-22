@@ -3,10 +3,10 @@ import type { HomePage, NavItem } from "../types";
 export const homePage: HomePage = {
   hero: {
     eyebrow: "Fernando Araujo · OAB/MG 235.682",
-    title: "Advogado com atuação em Direito Previdenciário e Trabalhista",
-    lead: "Estou ao seu lado para buscar o que é seu por direito, com atenção e linguagem simples, sem que você se sinta enganado ou humilhado.",
+    title: "Advogado especialista em Direito Trabalhista e Previdenciário",
+    lead: "Estou ao seu lado para buscar o que é seu por direito, entendendo suas dores e atuando com a máxima transparência.",
     cta: { label: "Quero conversar com o advogado" },
-    ctaNote: "Atendimento em todo o Brasil, sem sair de casa, e no escritório em Santa Juliana-MG.",
+    ctaNote: "Atendimento em todo o Brasil",
   },
   practice: {
     eyebrow: "Atuação",
@@ -24,27 +24,25 @@ export const homePage: HomePage = {
     steps: [
       {
         title: "Você conta o que aconteceu",
-        text: "Pelo WhatsApp, por ligação ou no escritório. Pode mandar mensagem ou áudio, do jeito que for mais fácil para você.",
-      },
-      {
-        title: "Análise do seu caso",
-        text: "Eu olho seus documentos e explico, com calma, quais caminhos existem e o que pode ser buscado na sua situação.",
+        text: "Seja no WhatsApp ou presencialmente, o primeiro contato é gratuito: você conta sua situação e avaliamos a viabilidade jurídica do seu caso.",
       },
       {
         title: "Conversa e próximos passos",
-        text: "Se fizer sentido seguir, conversamos por chamada de vídeo ou no escritório para definir a estratégia, os valores e cada etapa.",
+        text: "Se fizer sentido seguir, agendamos uma reunião gratuita com o advogado, on-line ou presencialmente, para definir a estratégia e os valores do trabalho a ser realizado.",
       },
       {
         title: "Acompanhamento até o fim",
         text: "Depois que o pedido ou a ação começa, eu te dou retorno frequente sobre o andamento. Você não fica sem resposta.",
       },
     ],
+    notice:
+      "Se você quiser apenas tirar dúvidas com o advogado, sem contratar o acompanhamento do caso, as respostas são cobradas como consulta jurídica.",
     cta: { label: "Começar pelo WhatsApp" },
   },
   about: {
     eyebrow: "Quem é Fernando Araujo",
-    title: "Eu cuido de cada caso com atenção, como se fosse único",
-    titleWithExperience: "Com {anos} anos de experiência, eu cuido de cada caso como se fosse único",
+    title: "Eu cuido do seu caso com a máxima atenção, atento a todos os detalhes",
+    titleWithExperience: "Com {anos} anos de experiência, eu cuido do seu caso com a máxima atenção, atento a todos os detalhes",
     credentialsTitle: "Formação e experiência",
     valuesTitle: "O que você pode esperar de mim",
     cta: { label: "Conversar com o Fernando" },
@@ -56,7 +54,7 @@ export const homePage: HomePage = {
   locations: {
     eyebrow: "Onde atendemos",
     title: "Seu advogado de confiança, onde você estiver",
-    text: "Não importa em que estado você mora: dá para cuidar do seu caso sem sair de casa, por WhatsApp, ligação ou chamada de vídeo. Se preferir conversar pessoalmente, o escritório fica em Santa Juliana-MG.",
+    text: "Não importa em que estado você mora: dá para cuidar do seu caso sem sair de casa, por WhatsApp ou chamada de vídeo. Se preferir conversar pessoalmente, o escritório fica em Santa Juliana-MG.",
     legendReach: "Atendimento em todos os estados",
     legendOffice: "Escritório em Santa Juliana-MG",
   },

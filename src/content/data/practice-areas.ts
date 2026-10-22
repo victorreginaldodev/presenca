@@ -1,6 +1,6 @@
 import type { PracticeArea } from "../types";
 
-// Quatro áreas, cada uma com uma imagem de `public/images/atuacao`.
+// Cinco áreas; as que têm imagem usam `public/images/atuacao`.
 // As situações reúnem os serviços do layout de referência (rescisão, demissão
 // injusta e emprego que adoece ficaram em "Ações trabalhistas").
 // Textos aguardam validação do Fernando (docs/PENDENCIAS.md).
@@ -34,12 +34,13 @@ export const practiceAreas: PracticeArea[] = [
     icon: "health",
     title: "Auxílio-doença e aposentadoria por invalidez",
     summary:
-      "Se a doença ou a lesão impede você de trabalhar, pode haver direito a um benefício do INSS. Eu confiro seus documentos e explico o caminho do pedido ou do recurso.",
+      "Se uma doença ou lesão impede você de trabalhar, pode haver direito a um benefício do INSS, temporário ou permanente, conforme a incapacidade identificada.",
     situations: [
-      "Afastado por doença ou lesão e sem renda",
-      "Benefício negado ou cortado pelo INSS",
-      "Dúvidas sobre a perícia médica",
+      "Comprovar a incapacidade para o trabalho",
+      "Possuir qualidade de segurado do INSS",
+      "Cumprir, em regra, 12 contribuições de carência, salvo exceções legais",
     ],
+    note: "Cada situação merece uma análise cuidadosa. Uma orientação jurídica individualizada pode ajudar você a compreender seus direitos.",
     image: {
       url: "/images/atuacao/beneficio-incapacidade.jpg",
       alt: "Mulher com a mão nas costas, sentindo dor na coluna",
@@ -50,17 +51,42 @@ export const practiceAreas: PracticeArea[] = [
     order: 2,
   },
   {
+    id: "auxilio-acidente",
+    slug: "auxilio-acidente",
+    field: "previdenciario",
+    icon: "injury",
+    title: "Auxílio-acidente",
+    summary:
+      "Se um acidente deixou sequelas permanentes que reduziram sua capacidade para o trabalho habitual, você pode ter direito a uma indenização mensal do INSS, mesmo continuando a trabalhar.",
+    situations: [
+      "Ter sofrido acidente de qualquer natureza",
+      "Apresentar sequela permanente com redução da capacidade laboral",
+      "Pertencer a uma categoria de segurados abrangida pelo benefício, sem exigência de carência",
+    ],
+    note: "Mesmo uma sequela aparentemente pequena pode gerar direitos. Uma avaliação jurídica personalizada pode esclarecer as possibilidades do seu caso.",
+    // Foto do Pexels (licença livre, uso comercial sem crédito): pexels.com/photo/7579834
+    image: {
+      url: "/images/atuacao/auxilio-acidente.jpg",
+      alt: "Médica mostrando um raio-X ao paciente durante a consulta",
+      width: 1200,
+      height: 630,
+    },
+    whatsappMessage: "Olá, Fernando! Quero entender meu caso sobre auxílio-acidente.",
+    order: 3,
+  },
+  {
     id: "acidente-de-trabalho",
     slug: "acidente-de-trabalho",
     field: "trabalhista",
     icon: "accident",
     title: "Acidente de trabalho e doença do trabalho",
     summary:
-      "Se machucou ou adoeceu por causa do trabalho e a empresa não deu suporte? Dependendo do que aconteceu, você pode ter direito a indenização.",
+      "Se machucou ou adoeceu por causa do trabalho e a empresa não deu suporte? Você pode ter direito a:",
     situations: [
-      "Acidente durante o trabalho",
-      "Doença causada ou agravada pelo trabalho",
-      "Empresa que não deu nenhum suporte",
+      "Indenização por danos materiais, morais, estéticos e existenciais",
+      "Pensão mensal até os 70 anos de idade ou mais",
+      "Rescisão do contrato de trabalho",
+      "Indenização aos herdeiros/dependentes em caso de óbito",
     ],
     image: {
       url: "/images/atuacao/acidente-trabalho.jpg",
@@ -69,7 +95,7 @@ export const practiceAreas: PracticeArea[] = [
       height: 630,
     },
     whatsappMessage: "Olá, Fernando! Quero entender meu caso sobre acidente de trabalho.",
-    order: 3,
+    order: 4,
   },
   {
     id: "acoes-trabalhistas",
@@ -78,12 +104,8 @@ export const practiceAreas: PracticeArea[] = [
     icon: "work",
     title: "Ações trabalhistas",
     summary:
-      "Saiu do emprego e não recebeu o que devia, ou o trabalho está tirando sua saúde? Eu explico quais direitos podem ser cobrados no seu caso.",
-    situations: [
-      "Rescisão e FGTS pagos errado",
-      "Demissão injusta, até por justa causa sem motivo",
-      "Sair de um emprego que está te adoecendo",
-    ],
+      "Foi demitido e não recebeu o que devia ou o patrão cometeu faltas graves e você não quer mais permanecer no emprego? Há alguns caminhos para a solução:",
+    situations: ["Acordo extrajudicial", "Reclamação trabalhista", "Rescisão indireta"],
     image: {
       url: "/images/atuacao/acoes-trabalhistas.jpg",
       alt: "Silhueta de um trabalhador da construção ao pôr do sol",
@@ -91,6 +113,6 @@ export const practiceAreas: PracticeArea[] = [
       height: 630,
     },
     whatsappMessage: "Olá, Fernando! Quero entender meu caso trabalhista.",
-    order: 4,
+    order: 5,
   },
 ];

@@ -25,19 +25,25 @@ export function PracticeAreas({ content, areas, closingHref }: PracticeAreasProp
         {areas.map((area) => (
           <li key={area.id}>
             <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-white sm:rounded-3xl">
-              <div className="relative">
-                <Image
-                  src={area.image.url}
-                  alt={area.image.alt}
-                  width={area.image.width}
-                  height={area.image.height}
-                  sizes="(min-width: 1152px) 556px, (min-width: 768px) 50vw, calc(100vw - 2.5rem)"
-                  className="aspect-[16/9] h-auto w-full object-cover sm:aspect-[2/1]"
-                />
-                <span className="absolute top-4 left-4 rounded-full bg-white/95 px-3 py-1 text-[13px] font-bold text-navy sm:top-5 sm:left-5 sm:px-3.5 sm:py-1.5 sm:text-sm">
+              {area.image ? (
+                <div className="relative">
+                  <Image
+                    src={area.image.url}
+                    alt={area.image.alt}
+                    width={area.image.width}
+                    height={area.image.height}
+                    sizes="(min-width: 1152px) 556px, (min-width: 768px) 50vw, calc(100vw - 2.5rem)"
+                    className="aspect-[16/9] h-auto w-full object-cover sm:aspect-[2/1]"
+                  />
+                  <span className="absolute top-4 left-4 rounded-full bg-white/95 px-3 py-1 text-[13px] font-bold text-navy sm:top-5 sm:left-5 sm:px-3.5 sm:py-1.5 sm:text-sm">
+                    {fieldLabels[area.field]}
+                  </span>
+                </div>
+              ) : (
+                <span className="mx-5 mt-5 w-fit rounded-full bg-gold-soft px-3 py-1 text-[13px] font-bold text-navy sm:mx-9 sm:mt-9 sm:px-3.5 sm:py-1.5 sm:text-sm">
                   {fieldLabels[area.field]}
                 </span>
-              </div>
+              )}
               <div className="flex flex-1 flex-col gap-4 p-5 sm:gap-5 sm:p-9">
                 <div className="flex items-center gap-3.5 sm:gap-4">
                   <span className="flex size-11 flex-none items-center justify-center rounded-xl bg-gold-soft text-gold-dark">
@@ -54,6 +60,7 @@ export function PracticeAreas({ content, areas, closingHref }: PracticeAreasProp
                     </li>
                   ))}
                 </ul>
+                {area.note && <p className="text-base text-muted sm:text-[17px]">{area.note}</p>}
                 <a
                   href={area.href}
                   target="_blank"

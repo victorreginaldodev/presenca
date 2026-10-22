@@ -24,14 +24,6 @@ export function Contact({ content, settings, whatsappHref }: ContactProps) {
 
   const channels: ContactChannel[] = [
     {
-      icon: "phone",
-      label: "Ligação",
-      value: contact.whatsappDisplay,
-      action: "Ligar agora",
-      href: `tel:${contact.phone}`,
-      external: false,
-    },
-    {
       icon: "mail",
       label: "E-mail",
       value: breakableEmail(contact.email),
@@ -86,7 +78,7 @@ export function Contact({ content, settings, whatsappHref }: ContactProps) {
         </div>
 
         {/* Outros canais */}
-        <ul className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-1">
+        <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-1">
           {channels.map((channel) => (
             <li key={channel.label}>
               <a

@@ -41,13 +41,6 @@ export function SiteFooter({ settings, name, navigation, practiceAreas, whatsapp
       ariaLabel: `WhatsApp ${contact.whatsappDisplay} (abre em nova aba)`,
     },
     {
-      icon: "phone",
-      label: "Ligar agora",
-      href: `tel:${contact.phone}`,
-      external: false,
-      ariaLabel: `Ligar para ${contact.whatsappDisplay}`,
-    },
-    {
       icon: "mail",
       label: breakableEmail(contact.email),
       href: `mailto:${contact.email}`,

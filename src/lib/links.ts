@@ -24,14 +24,12 @@ export function formatAddress(address: Address): string {
   return `${address.street}, ${address.neighborhood}, ${address.city}-${address.state}, ${address.postalCode}`;
 }
 
-function addressQuery(address: Address): string {
-  return encodeURIComponent(`${address.street}, ${address.city} - ${address.state}, ${address.postalCode}`);
-}
-
+/** Abre o perfil do escritório no Google Maps. Buscar pelo endereço mostrava outros lugares. */
 export function googleMapsUrl(address: Address): string {
-  return `https://www.google.com/maps/search/?api=1&query=${addressQuery(address)}`;
+  return address.googleMapsUrl;
 }
 
+/** Rota no Waze até as coordenadas do escritório. */
 export function wazeUrl(address: Address): string {
-  return `https://waze.com/ul?q=${addressQuery(address)}&navigate=yes`;
+  return `https://waze.com/ul?ll=${address.latitude},${address.longitude}&navigate=yes`;
 }

@@ -1,5 +1,6 @@
 import type { HomePage } from "@/content/types";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { Icon } from "@/components/ui/Icon";
 import { Section } from "@/components/ui/Section";
 
 interface ProcessProps {
@@ -28,6 +29,12 @@ export function Process({ content, ctaHref }: ProcessProps) {
           >
             {content.cta.label}
           </ButtonLink>
+          <p className="mt-2 flex gap-3 rounded-2xl border border-gold/60 bg-navy-soft p-4 text-base leading-relaxed text-white sm:mt-4 sm:p-5 sm:text-[17px]">
+            <Icon name="info" size={22} className="mt-0.5 flex-none text-gold" />
+            <span>
+              <strong className="font-bold text-gold">Importante:</strong> {content.notice}
+            </span>
+          </p>
         </div>
 
         <ol className="relative flex flex-col gap-9 border-l border-navy-line pl-6 sm:gap-14 sm:pl-12">

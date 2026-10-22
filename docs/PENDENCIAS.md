@@ -37,7 +37,9 @@ Revisão a partir do documento de referências ("04. Site - modelos"): textos ma
 | Onde atendemos — título | Atendimento em todo o Brasil | Seu advogado de confiança, onde você estiver |
 | Contato — título e subtítulo | Fale com o Fernando / Escolha o jeito mais fácil para você... | Estou aqui para ouvir você / Conte o que aconteceu do jeito mais fácil para você... |
 
-O documento pede "título de especialista" no topo e "com X anos de experiência" no Sobre. O título continua "com atuação" até o Fernando confirmar a especialização (ver a primeira linha da tabela acima). O Sobre já troca o título sozinho para "Com X anos de experiência, eu cuido de cada caso como se fosse único" assim que `yearsOfExperience` for preenchido em `src/content/data/profile.ts`; o currículo aparece ao preencher `credentials`.
+**Atualização (documento "ALTERAÇÕES – COPYS", enviado pelo Fernando):** todos os textos do documento foram aplicados como pedidos, incluindo "Advogado especialista" no título (a especialização vem das pós-graduações citadas no Sobre), a nova história no Sobre, o card de Auxílio-acidente, o aviso de cobrança de consulta em "Como funciona", a retirada da opção de ligação e o endereço por extenso ("Rua Vinte e Seis de Outubro"). Os links "Google Maps" e "Como chegar" agora abrem o perfil do escritório no Google, e o Waze usa as coordenadas do escritório.
+
+O card de **Auxílio-acidente** usa uma foto gratuita do Pexels (pexels.com/photo/7579834, licença livre para uso comercial). Falta, se quiser, o tempo de experiência em `yearsOfExperience` (`src/content/data/profile.ts`), que passa a aparecer no título do Sobre.
 
 Novos textos que também precisam de "ok": as situações listadas em cada área de atuação (ex.: "Pedido negado ou parado no INSS", "Dúvidas sobre a perícia médica", "Rescisão e FGTS pagos errado"), o título "Atendimento em todo o Brasil" e a frase de apresentação do rodapé.
 
