@@ -110,7 +110,7 @@ export function ReviewsCarousel({ slides }: { slides: ReviewSlide[] }) {
             type="button"
             aria-label="Avaliação anterior"
             onClick={() => go(current - 1)}
-            className="flex size-11 items-center justify-center rounded-full text-navy transition-colors hover:bg-white motion-reduce:transition-none"
+            className="flex size-11 items-center justify-center rounded-full text-navy transition-colors hover:bg-surface motion-reduce:transition-none"
           >
             <Icon name="arrow-left" size={20} />
           </button>
@@ -136,7 +136,7 @@ export function ReviewsCarousel({ slides }: { slides: ReviewSlide[] }) {
             type="button"
             aria-label="Próxima avaliação"
             onClick={() => go(current + 1)}
-            className="flex size-11 items-center justify-center rounded-full text-navy transition-colors hover:bg-white motion-reduce:transition-none"
+            className="flex size-11 items-center justify-center rounded-full text-navy transition-colors hover:bg-surface motion-reduce:transition-none"
           >
             <Icon name="arrow-right" size={20} />
           </button>

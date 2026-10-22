@@ -190,6 +190,8 @@ export interface HomePage {
   about: {
     eyebrow: string;
     title: string;
+    /** Usado quando o tempo de experiência estiver preenchido; `{anos}` vira o número. */
+    titleWithExperience: string;
     credentialsTitle: string;
     valuesTitle: string;
     cta: CallToAction;

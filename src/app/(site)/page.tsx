@@ -36,9 +36,9 @@ export default async function HomePage() {
         closingHref={whatsapp(home.practice.closingCta.whatsappMessage)}
       />
       <Process content={home.process} ctaHref={whatsapp(home.process.cta.whatsappMessage)} />
+      <Reviews content={home.reviews} reviews={reviews.items} summary={reviews.summary} />
       <About content={home.about} profile={profile} ctaHref={whatsapp(home.about.cta.whatsappMessage)} />
       {/* Blog (etapa 3): a seção com os últimos artigos entra aqui. */}
-      <Reviews content={home.reviews} reviews={reviews.items} summary={reviews.summary} />
       <Locations content={home.locations} settings={settings} />
       <Contact content={home.contact} settings={settings} whatsappHref={whatsapp(home.contact.cta.whatsappMessage)} />
     </>

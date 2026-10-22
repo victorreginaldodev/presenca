@@ -27,6 +27,18 @@ Os textos do layout foram mantidos sempre que possível. As mudanças abaixo rem
 | Sobre — título | Com **[X] anos** de experiência, eu cuido de cada caso como se fosse único | Eu cuido de cada caso com atenção, como se fosse único | Tempo de experiência não informado. |
 | Sobre | Meu trabalho é lutar, **até o fim**, para que você **receba** o que é seu... | Meu trabalho é lutar pelo que é seu por direito, para que você não se sinta enganado, trapaceado ou humilhado. | Evita compromisso de resultado. |
 
+Revisão a partir do documento de referências ("04. Site - modelos"): textos mais acolhedores, que também precisam de "ok".
+
+| Onde | Antes | Agora |
+| --- | --- | --- |
+| Início | ...buscar o que é seu por direito, sem que você se sinta enganado ou humilhado. | ...buscar o que é seu por direito, **com atenção e linguagem simples**, sem que você se sinta enganado ou humilhado. |
+| Atuação — subtítulo | Veja se alguma dessas situações é parecida com a sua. | **Você não precisa enfrentar o INSS ou a empresa sozinho.** Veja se alguma dessas situações é parecida com a sua. |
+| Avaliações — título | O que dizem sobre o trabalho do Fernando | Quem já confiou no Fernando recomenda |
+| Onde atendemos — título | Atendimento em todo o Brasil | Seu advogado de confiança, onde você estiver |
+| Contato — título e subtítulo | Fale com o Fernando / Escolha o jeito mais fácil para você... | Estou aqui para ouvir você / Conte o que aconteceu do jeito mais fácil para você... |
+
+O documento pede "título de especialista" no topo e "com X anos de experiência" no Sobre. O título continua "com atuação" até o Fernando confirmar a especialização (ver a primeira linha da tabela acima). O Sobre já troca o título sozinho para "Com X anos de experiência, eu cuido de cada caso como se fosse único" assim que `yearsOfExperience` for preenchido em `src/content/data/profile.ts`; o currículo aparece ao preencher `credentials`.
+
 Novos textos que também precisam de "ok": as situações listadas em cada área de atuação (ex.: "Pedido negado ou parado no INSS", "Dúvidas sobre a perícia médica", "Rescisão e FGTS pagos errado"), o título "Atendimento em todo o Brasil" e a frase de apresentação do rodapé.
 
 Também precisam de "ok":

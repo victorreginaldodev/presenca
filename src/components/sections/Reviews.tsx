@@ -37,7 +37,7 @@ export function Reviews({ content, reviews, summary }: ReviewsProps) {
   const hasSummary = summary.averageRating !== null && summary.totalReviews !== null;
 
   return (
-    <Section id="avaliacoes" tone="muted" labelledBy="avaliacoes-titulo">
+    <Section id="avaliacoes" labelledBy="avaliacoes-titulo">
       <SectionHeader id="avaliacoes-titulo" eyebrow={content.eyebrow} title={content.title} />
 
       {hasSummary && (

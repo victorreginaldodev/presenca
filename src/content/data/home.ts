@@ -4,14 +4,14 @@ export const homePage: HomePage = {
   hero: {
     eyebrow: "Fernando Araujo · OAB/MG 235.682",
     title: "Advogado com atuação em Direito Previdenciário e Trabalhista",
-    lead: "Estou ao seu lado para buscar o que é seu por direito, sem que você se sinta enganado ou humilhado.",
+    lead: "Estou ao seu lado para buscar o que é seu por direito, com atenção e linguagem simples, sem que você se sinta enganado ou humilhado.",
     cta: { label: "Quero conversar com o advogado" },
     ctaNote: "Atendimento em todo o Brasil, sem sair de casa, e no escritório em Santa Juliana-MG.",
   },
   practice: {
     eyebrow: "Atuação",
     title: "Como posso te ajudar",
-    subtitle: "Veja se alguma dessas situações é parecida com a sua.",
+    subtitle: "Você não precisa enfrentar o INSS ou a empresa sozinho. Veja se alguma dessas situações é parecida com a sua.",
     linkLabel: "Conversar sobre isso",
     closingText:
       "Muita gente perde o direito por causa de um documento que faltou ou de um prazo que passou. Com orientação desde o começo, fica mais fácil evitar esses erros.",
@@ -44,25 +44,26 @@ export const homePage: HomePage = {
   about: {
     eyebrow: "Quem é Fernando Araujo",
     title: "Eu cuido de cada caso com atenção, como se fosse único",
+    titleWithExperience: "Com {anos} anos de experiência, eu cuido de cada caso como se fosse único",
     credentialsTitle: "Formação e experiência",
     valuesTitle: "O que você pode esperar de mim",
     cta: { label: "Conversar com o Fernando" },
   },
   reviews: {
     eyebrow: "Avaliações",
-    title: "O que dizem sobre o trabalho do Fernando",
+    title: "Quem já confiou no Fernando recomenda",
   },
   locations: {
     eyebrow: "Onde atendemos",
-    title: "Atendimento em todo o Brasil",
+    title: "Seu advogado de confiança, onde você estiver",
     text: "Não importa em que estado você mora: dá para cuidar do seu caso sem sair de casa, por WhatsApp, ligação ou chamada de vídeo. Se preferir conversar pessoalmente, o escritório fica em Santa Juliana-MG.",
     legendReach: "Atendimento em todos os estados",
     legendOffice: "Escritório em Santa Juliana-MG",
   },
   contact: {
     eyebrow: "Contato",
-    title: "Fale com o Fernando",
-    subtitle: "Escolha o jeito mais fácil para você. Eu explico, com calma, como funciona o seu caso.",
+    title: "Estou aqui para ouvir você",
+    subtitle: "Conte o que aconteceu do jeito mais fácil para você. Eu explico, com calma, como funciona o seu caso.",
     whatsappTitle: "O caminho mais rápido",
     whatsappText: "Mande uma mensagem ou um áudio contando o que aconteceu. Eu respondo em horário de atendimento.",
     cta: { label: "Conversar no WhatsApp" },
@@ -75,8 +76,8 @@ export const homePage: HomePage = {
  */
 export const navigation: NavItem[] = [
   { label: "Atuação", sectionId: "atuacao" },
-  { label: "Quem é Fernando", sectionId: "sobre" },
   { label: "Avaliações", sectionId: "avaliacoes" },
+  { label: "Quem é Fernando", sectionId: "sobre" },
   { label: "Onde atendemos", sectionId: "onde-atendemos" },
   { label: "Contato", sectionId: "contato" },
 ];

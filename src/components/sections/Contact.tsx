@@ -50,7 +50,7 @@ export function Contact({ content, settings, whatsappHref }: ContactProps) {
   ];
 
   return (
-    <Section id="contato" tone="muted" labelledBy="contato-titulo">
+    <Section id="contato" labelledBy="contato-titulo" className="border-t border-line">
       <SectionHeader id="contato-titulo" eyebrow={content.eyebrow} title={content.title} subtitle={content.subtitle} />
 
       <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-14 sm:gap-6 lg:mt-20 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">

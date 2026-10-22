@@ -13,9 +13,14 @@ interface AboutProps {
 
 export function About({ content, profile, ctaHref }: AboutProps) {
   const photo = profile.photos.about;
+  // Com o tempo de experiência informado, o título passa a citá-lo.
+  const title =
+    profile.yearsOfExperience !== null
+      ? content.titleWithExperience.replace("{anos}", String(profile.yearsOfExperience))
+      : content.title;
 
   return (
-    <Section id="sobre" labelledBy="sobre-titulo">
+    <Section id="sobre" tone="dark" labelledBy="sobre-titulo">
       <div
         className={
           photo
@@ -38,40 +43,40 @@ export function About({ content, profile, ctaHref }: AboutProps) {
 
         <div className="flex flex-col gap-4 sm:gap-6">
           <p className="eyebrow">{content.eyebrow}</p>
-          <h2 id="sobre-titulo" className="heading-2 text-navy">
-            {content.title}
+          <h2 id="sobre-titulo" className="heading-2">
+            {title}
           </h2>
           <div className="flex flex-col gap-4 sm:gap-5">
             {profile.bio.map((paragraph) => (
-              <p key={paragraph} className="text-muted">
+              <p key={paragraph} className="text-mist-light">
                 {paragraph}
               </p>
             ))}
           </div>
 
           {profile.credentials.length > 0 && (
-            <div className="mt-4 rounded-2xl border border-line p-5 sm:p-7">
-              <h3 className="text-xl font-bold text-navy">{content.credentialsTitle}</h3>
+            <div className="mt-4 rounded-2xl border border-navy-line bg-navy-soft p-5 sm:p-7">
+              <h3 className="text-xl font-bold">{content.credentialsTitle}</h3>
               <dl className="mt-5 grid gap-5 sm:grid-cols-2">
                 {profile.credentials.map((item) => (
                   <div key={item.label} className="flex flex-col gap-1">
-                    <dt className="text-sm font-bold tracking-wide text-gold-dark uppercase">{item.label}</dt>
-                    <dd className="text-ink">{item.value}</dd>
+                    <dt className="text-sm font-bold tracking-wide text-gold uppercase">{item.label}</dt>
+                    <dd className="text-mist-light">{item.value}</dd>
                   </div>
                 ))}
               </dl>
             </div>
           )}
 
-          <div className="mt-4 border-t border-line pt-8 sm:mt-6 sm:pt-10">
-            <h3 className="text-xl font-bold text-navy">{content.valuesTitle}</h3>
+          <div className="mt-4 border-t border-navy-line pt-8 sm:mt-6 sm:pt-10">
+            <h3 className="text-xl font-bold">{content.valuesTitle}</h3>
             <ul className="mt-5 grid gap-x-8 gap-y-3.5 sm:mt-7 sm:grid-cols-2 sm:gap-y-5">
               {profile.values.map((value) => (
                 <li key={value.label} className="flex items-center gap-3.5 sm:gap-4">
-                  <span className="flex size-10 flex-none sm:size-11 items-center justify-center rounded-full bg-gold-soft text-gold-dark">
+                  <span className="flex size-10 flex-none items-center justify-center rounded-full bg-navy-soft text-gold ring-1 ring-navy-line sm:size-11">
                     <Icon name={value.icon} size={20} />
                   </span>
-                  <span className="text-[17px] font-semibold text-navy sm:text-lg">{value.label}</span>
+                  <span className="text-[17px] font-semibold sm:text-lg">{value.label}</span>
                 </li>
               ))}
             </ul>
@@ -81,7 +86,6 @@ export function About({ content, profile, ctaHref }: AboutProps) {
             href={ctaHref}
             external
             size="lg"
-            variant="navy"
             iconStart="whatsapp"
             className="mt-4 w-full sm:mt-6 sm:w-fit"
             ariaLabel={`${content.cta.label} pelo WhatsApp (abre em nova aba)`}
