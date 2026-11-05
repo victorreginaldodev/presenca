@@ -23,9 +23,9 @@ export function BrandMark({ logo, title, subtitle, tone = "dark" }: BrandMarkPro
     <span className="flex min-w-0 items-center gap-3 sm:gap-3.5">
       {/* O nome ao lado já identifica a marca, então o logo é decorativo aqui. */}
       <Image src={logo.url} alt="" width={logo.width} height={logo.height} className="h-9 w-auto sm:h-11" />
-      <span className="flex flex-col leading-tight">
-        <span className={`text-base font-bold whitespace-nowrap sm:text-lg ${tones[tone].title}`}>{title}</span>
-        <span className={`text-[13px] font-semibold whitespace-nowrap sm:text-sm ${tones[tone].subtitle}`}>
+      <span className="flex min-w-0 flex-col leading-tight">
+        <span className={`truncate text-base font-bold sm:text-lg ${tones[tone].title}`}>{title}</span>
+        <span className={`truncate text-[13px] font-semibold sm:text-sm ${tones[tone].subtitle}`}>
           {subtitle}
         </span>
       </span>

@@ -50,17 +50,17 @@ export function MobileMenu({ links, whatsappHref, tone = "dark" }: MobileMenuPro
         buttonRef.current?.focus();
       }
     }
-    // Fecha se a tela crescer para o layout de desktop com o menu aberto.
-    const desktop = window.matchMedia("(min-width: 80rem)");
-    function onBreakpoint(event: MediaQueryListEvent) {
-      if (event.matches) setOpen(false);
+    // Fecha se a tela crescer para o layout de desktop com o menu aberto:
+    // o botão some quando o CSS esconde o menu (xl no site, lg no blog).
+    function onResize() {
+      if (buttonRef.current?.offsetParent === null) setOpen(false);
     }
 
     document.addEventListener("keydown", onKeyDown);
-    desktop.addEventListener("change", onBreakpoint);
+    window.addEventListener("resize", onResize);
     return () => {
       document.removeEventListener("keydown", onKeyDown);
-      desktop.removeEventListener("change", onBreakpoint);
+      window.removeEventListener("resize", onResize);
       document.body.style.overflow = overflow;
     };
   }, [open]);
@@ -85,7 +85,7 @@ export function MobileMenu({ links, whatsappHref, tone = "dark" }: MobileMenuPro
         hidden={!open}
         className={`absolute inset-x-0 top-full h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain sm:h-auto sm:max-h-[calc(100dvh-5rem)] sm:border-b sm:shadow-xl ${tones[tone].panel}`}
       >
-        <nav aria-label="Menu principal" className="mx-auto max-w-site px-5 pt-2 pb-[max(2rem,env(safe-area-inset-bottom))] sm:px-8">
+        <nav aria-label="Menu principal" className="mx-auto max-w-site px-5 pt-2 pb-[max(5.5rem,env(safe-area-inset-bottom))] sm:px-8">
           <ul className="flex flex-col">
             {links.map((link) => (
               <li key={link.href} className={`border-b ${tones[tone].item}`}>
