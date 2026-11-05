@@ -127,8 +127,8 @@ export function SiteFooter({ settings, name, navigation, practiceAreas, whatsapp
             <FooterHeading>Navegação</FooterHeading>
             <ul className="flex flex-col gap-1.5 text-[15px] leading-snug sm:gap-3 sm:text-base sm:leading-[1.7]">
               {navigation.map((item) => (
-                <li key={item.sectionId}>
-                  <Link href={`/#${item.sectionId}`} className={linkClass}>
+                <li key={item.href}>
+                  <Link href={item.href} className={linkClass}>
                     {item.label}
                   </Link>
                 </li>

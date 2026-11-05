@@ -82,7 +82,8 @@ O site funciona sem estes itens; cada um aparece sozinho quando for preenchido.
 
 ## 6. Itens do layout que dependem de etapas futuras (removidos)
 
-- Link "Blog" no menu e no rodapé, e a seção de blog entre "Quem é Fernando" e "Avaliações" → etapa 3.
+- Link "Blog" no menu e no rodapé, e a seção de blog → **implementado (etapa 3)**. O blog existe em `/blog` com três artigos iniciais em `src/content/data/blog.ts`, escritos para quem busca a dúvida no Google e termina chamando no WhatsApp. Precisam de aprovação do Fernando, **com atenção especial ao conteúdo jurídico** (prazos, verbas, regras do INSS e da CLT citados nos textos e nas perguntas frequentes): os artigos, a mini-bio do autor (`shortBio` em `profile.ts`), o aviso informativo, as chamadas para o WhatsApp e as mensagens pré-preenchidas. Para tirar um artigo do ar, mude `status` para `"draft"`. O README explica como escrever novos artigos; sugerir ao Fernando a rotina de 2 a 4 por mês, com pautas vindas das dúvidas do WhatsApp.
+- **Prompt de produção de artigos por IA** → criado em `docs/PROMPT-ARTIGO.md`. O Fernando cola o prompt + tema + fontes oficiais numa conversa nova e recebe o artigo no formato do blog (exemplo em `docs/exemplos/artigo-exemplo.md`). Pendências: testar o prompt uma vez num modelo real e ajustar se o formato sair errado; a revisão jurídica continua sendo dele antes de cada publicação.
 - Botão flutuante "Tire sua dúvida" (chat) → etapa 5. Mantido apenas o botão do WhatsApp.
 - "Ver todas as avaliações no Google" → volta junto com as avaliações reais.
 

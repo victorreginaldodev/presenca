@@ -19,6 +19,8 @@ export const lawyerProfile: LawyerProfile = {
     "Movido pela busca constante por aperfeiçoamento, concluí pós-graduação em Direito Previdenciário pela Escola da Magistratura Federal do Paraná (ESMAFE) e em Direito do Trabalho pela Faculdade Focus. Também possuo formações em Controladoria Jurídica, Controladoria Empresarial e Administração de Empresas.",
     "Em 1º de abril de 2025, fundei a Fernando Araujo Advocacia. Desde sua fundação, a Fernando Araujo Advocacia segue transformando vidas em todo o Brasil, por meio de uma atuação pautada pela excelência técnica, ética, transparência e humanização. Afinal, por trás de cada processo, existe uma história que merece ser ouvida e respeitada.",
   ],
+  shortBio:
+    "Advogado inscrito na OAB/MG, pós-graduado em Direito Previdenciário pela ESMAFE e em Direito do Trabalho. Atende em todo o Brasil pelo WhatsApp e presencialmente em Santa Juliana-MG, explicando cada etapa do caso em linguagem simples.",
   photos: {
     hero: {
       url: "/images/fernando/fernando-terno-azul.jpg",

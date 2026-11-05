@@ -1,11 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 
-import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
-import { SiteFooter } from "@/components/layout/SiteFooter";
-import { SiteHeader } from "@/components/layout/SiteHeader";
-import { getLawyerProfile, getNavigation, getPracticeAreas, getSiteSettings } from "@/lib/content";
-import { contactWhatsappUrl } from "@/lib/links";
+import { getSiteSettings } from "@/lib/content";
 import { getSiteUrl } from "@/lib/site-url";
 
 import "./globals.css";
@@ -54,39 +50,16 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
-export default async function SiteLayout({ children }: { children: React.ReactNode }) {
-  const [settings, profile, navigation, practiceAreas] = await Promise.all([
-    getSiteSettings(),
-    getLawyerProfile(),
-    getNavigation(),
-    getPracticeAreas(),
-  ]);
-  const whatsappHref = contactWhatsappUrl(settings);
-
+// Cabeçalho e rodapé ficam nos layouts de cada área: `(home)` usa o SiteChrome
+// do site institucional e `blog/` tem cabeçalho e rodapé próprios.
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className={nunitoSans.variable}>
       <body>
         <a href="#conteudo" className="skip-link">
           Pular para o conteúdo
         </a>
-        <SiteHeader
-          name={profile.name}
-          oab={settings.oab}
-          logo={settings.logo}
-          navigation={navigation}
-          whatsappHref={whatsappHref}
-        />
-        <main id="conteudo" tabIndex={-1} className="focus:outline-none">
-          {children}
-        </main>
-        <SiteFooter
-          settings={settings}
-          name={profile.name}
-          navigation={navigation}
-          practiceAreas={practiceAreas}
-          whatsappHref={whatsappHref}
-        />
-        <FloatingWhatsApp href={whatsappHref} />
+        {children}
       </body>
     </html>
   );

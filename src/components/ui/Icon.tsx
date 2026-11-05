@@ -5,12 +5,15 @@ import {
   Bandage,
   BookOpen,
   BriefcaseBusiness,
+  CalendarDays,
   Check,
   Clock,
+  ExternalLink,
   Eye,
   HardHat,
   HeartPulse,
   Info,
+  Link2,
   Mail,
   MapPin,
   Menu,
@@ -58,6 +61,9 @@ const lucide: Record<Exclude<IconName, BrandIcon>, LucideIcon> = {
   star: Star,
   injury: Bandage,
   info: Info,
+  link: Link2,
+  external: ExternalLink,
+  calendar: CalendarDays,
 };
 
 type BrandIcon = "whatsapp" | "instagram" | "google";

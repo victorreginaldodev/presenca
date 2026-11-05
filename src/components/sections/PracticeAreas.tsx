@@ -1,20 +1,16 @@
 import Image from "next/image";
 
-import type { HomePage, LegalField, PracticeArea } from "@/content/types";
+import type { HomePage, PracticeArea } from "@/content/types";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Icon } from "@/components/ui/Icon";
 import { Section, SectionHeader } from "@/components/ui/Section";
+import { fieldLabels } from "@/lib/fields";
 
 interface PracticeAreasProps {
   content: HomePage["practice"];
   areas: (PracticeArea & { href: string })[];
   closingHref: string;
 }
-
-const fieldLabels: Record<LegalField, string> = {
-  previdenciario: "Previdenciário",
-  trabalhista: "Trabalhista",
-};
 
 export function PracticeAreas({ content, areas, closingHref }: PracticeAreasProps) {
   return (

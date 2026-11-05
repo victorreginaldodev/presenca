@@ -51,6 +51,12 @@ export const homePage: HomePage = {
     eyebrow: "Avaliações",
     title: "Quem já confiou no Fernando recomenda",
   },
+  blog: {
+    eyebrow: "Blog",
+    title: "Entenda seus direitos em linguagem simples",
+    subtitle: "Artigos curtos sobre INSS, aposentadoria e direitos do trabalhador, para você conhecer seus direitos antes de decidir o que fazer.",
+    linkLabel: "Ver todos os artigos",
+  },
   locations: {
     eyebrow: "Onde atendemos",
     title: "Seu advogado de confiança, onde você estiver",
@@ -69,13 +75,15 @@ export const homePage: HomePage = {
 };
 
 /**
- * Itens do menu, na ordem das seções. Itens de seções sem conteúdo são
- * removidos em `getNavigation`. O blog (etapa 3) entra aqui quando existir.
+ * Itens do menu, na ordem das seções e páginas. Âncoras apontam para a home
+ * ("/#secao"); "Blog" aponta para a lista de artigos. Itens sem conteúdo
+ * são removidos em `getNavigation`.
  */
 export const navigation: NavItem[] = [
-  { label: "Atuação", sectionId: "atuacao" },
-  { label: "Avaliações", sectionId: "avaliacoes" },
-  { label: "Quem é Fernando", sectionId: "sobre" },
-  { label: "Onde atendemos", sectionId: "onde-atendemos" },
-  { label: "Contato", sectionId: "contato" },
+  { label: "Atuação", href: "/#atuacao" },
+  { label: "Avaliações", href: "/#avaliacoes" },
+  { label: "Quem é Fernando", href: "/#sobre" },
+  { label: "Blog", href: "/blog" },
+  { label: "Onde atendemos", href: "/#onde-atendemos" },
+  { label: "Contato", href: "/#contato" },
 ];

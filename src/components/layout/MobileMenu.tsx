@@ -6,12 +6,31 @@ import Link from "next/link";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Icon } from "@/components/ui/Icon";
 
+type Tone = "dark" | "light";
+
+const tones: Record<Tone, { button: string; panel: string; item: string; link: string }> = {
+  dark: {
+    button: "border-white/35 text-white",
+    panel: "bg-navy sm:border-white/10",
+    item: "border-white/10",
+    link: "text-white",
+  },
+  light: {
+    button: "border-navy/30 text-navy",
+    panel: "bg-white sm:border-line",
+    item: "border-line",
+    link: "text-navy",
+  },
+};
+
 interface MobileMenuProps {
   links: { label: string; href: string }[];
   whatsappHref: string;
+  /** `dark` no cabeçalho navy do site; `light` no cabeçalho claro do blog. */
+  tone?: Tone;
 }
 
-export function MobileMenu({ links, whatsappHref }: MobileMenuProps) {
+export function MobileMenu({ links, whatsappHref, tone = "dark" }: MobileMenuProps) {
   const [open, setOpen] = useState(false);
   const panelId = useId();
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -55,7 +74,7 @@ export function MobileMenu({ links, whatsappHref }: MobileMenuProps) {
         aria-controls={panelId}
         aria-label={open ? "Fechar menu" : "Abrir menu"}
         onClick={() => setOpen((value) => !value)}
-        className="-mr-1 flex size-12 touch-manipulation items-center justify-center rounded-xl border-2 border-white/35 text-white"
+        className={`-mr-1 flex size-12 touch-manipulation items-center justify-center rounded-xl border-2 ${tones[tone].button}`}
       >
         <Icon name={open ? "close" : "menu"} size={24} strokeWidth={2.4} />
       </button>
@@ -64,16 +83,16 @@ export function MobileMenu({ links, whatsappHref }: MobileMenuProps) {
         ref={panelRef}
         id={panelId}
         hidden={!open}
-        className="absolute inset-x-0 top-full h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain bg-navy sm:h-auto sm:max-h-[calc(100dvh-5rem)] sm:border-b sm:border-white/10 sm:shadow-xl"
+        className={`absolute inset-x-0 top-full h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain sm:h-auto sm:max-h-[calc(100dvh-5rem)] sm:border-b sm:shadow-xl ${tones[tone].panel}`}
       >
         <nav aria-label="Menu principal" className="mx-auto max-w-site px-5 pt-2 pb-[max(2rem,env(safe-area-inset-bottom))] sm:px-8">
           <ul className="flex flex-col">
             {links.map((link) => (
-              <li key={link.href} className="border-b border-white/10">
+              <li key={link.href} className={`border-b ${tones[tone].item}`}>
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="flex min-h-14 items-center text-lg font-semibold text-white no-underline sm:min-h-15 sm:text-xl"
+                  className={`flex min-h-14 items-center text-lg font-semibold no-underline sm:min-h-15 sm:text-xl ${tones[tone].link}`}
                 >
                   {link.label}
                 </Link>

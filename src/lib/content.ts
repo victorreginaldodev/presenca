@@ -12,13 +12,17 @@
  */
 import { cache } from "react";
 
+import { blogPage, posts } from "@/content/data/blog";
 import { homePage, navigation } from "@/content/data/home";
 import { practiceAreas } from "@/content/data/practice-areas";
 import { lawyerProfile } from "@/content/data/profile";
 import { reviewSummary, reviews } from "@/content/data/reviews";
 import { siteSettings } from "@/content/data/site-settings";
 import type {
+  BlogPage,
+  BlogPost,
   HomePage,
+  LegalField,
   LawyerProfile,
   NavItem,
   PracticeArea,
@@ -44,8 +48,45 @@ export const getReviews = cache(
   }),
 );
 
-/** Menu principal, sem itens que apontem para seções vazias. */
+export const getBlogPage = cache(async (): Promise<BlogPage> => blogPage);
+
+/** Artigos publicados, do mais recente ao mais antigo. Rascunhos nunca saem daqui. */
+export const getPosts = cache(async (): Promise<BlogPost[]> =>
+  posts
+    .filter((post) => post.status === "published")
+    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt)),
+);
+
+export const getPostsByField = cache(async (field: LegalField): Promise<BlogPost[]> =>
+  (await getPosts()).filter((post) => post.field === field),
+);
+
+export const getLatestPosts = cache(async (limit = 3): Promise<BlogPost[]> =>
+  (await getPosts()).slice(0, limit),
+);
+
+export const getPostBySlug = cache(
+  async (slug: string): Promise<BlogPost | null> =>
+    (await getPosts()).find((post) => post.slug === slug) ?? null,
+);
+
+/** Artigo em destaque em /blog: o marcado como `featured` ou, sem marcação, o mais recente. */
+export const getFeaturedPost = cache(async (): Promise<BlogPost | null> => {
+  const published = await getPosts();
+  return published.find((post) => post.featured) ?? published[0] ?? null;
+});
+
+/** Artigos da mesma área, mais recentes primeiro, sem o atual. */
+export const getRelatedPosts = cache(async (post: BlogPost, limit = 3): Promise<BlogPost[]> =>
+  (await getPostsByField(post.field)).filter((item) => item.id !== post.id).slice(0, limit),
+);
+
+/** Menu principal, sem itens que apontem para páginas ou seções vazias. */
 export const getNavigation = cache(async (): Promise<NavItem[]> => {
-  const { items } = await getReviews();
-  return navigation.filter((item) => item.sectionId !== "avaliacoes" || items.length > 0);
+  const [{ items }, publishedPosts] = await Promise.all([getReviews(), getPosts()]);
+  return navigation.filter(
+    (item) =>
+      (item.href !== "/#avaliacoes" || items.length > 0) &&
+      (item.href !== "/blog" || publishedPosts.length > 0),
+  );
 });
