@@ -12,19 +12,21 @@ interface HeroProps {
 /** Primeira dobra: foto do escritório ao fundo, texto à esquerda (em baixo no celular). */
 export function Hero({ content, ctaHref }: HeroProps) {
   const desktop = getImageProps({
-    src: "/images/hero/hero-fernando-v5-desktop.jpg",
+    src: "/images/hero/hero-fernando-v7-desktop.webp",
     alt: "",
     fill: true,
     sizes: "100vw",
-    quality: 95,
+    quality: 100,
+    unoptimized: true,
     fetchPriority: "high",
   });
   const mobile = getImageProps({
-    src: "/images/hero/hero-fernando-v5-mobile.jpg",
+    src: "/images/hero/hero-fernando-v7-mobile.webp",
     alt: "",
     fill: true,
     sizes: "100vw",
-    quality: 95,
+    quality: 100,
+    unoptimized: true,
   });
 
   const enter = "motion-safe:animate-[hero-enter_0.6s_ease-out_both]";
