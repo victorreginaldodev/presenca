@@ -21,7 +21,7 @@ export function Hero({ content, ctaHref }: HeroProps) {
     fetchPriority: "high",
   });
   const mobile = getImageProps({
-    src: "/images/hero/hero-fernando-v7-mobile.webp",
+    src: "/images/hero/hero-fernando-v8-mobile.webp",
     alt: "",
     fill: true,
     sizes: "100vw",
@@ -35,8 +35,8 @@ export function Hero({ content, ctaHref }: HeroProps) {
     <section id="inicio" aria-labelledby="inicio-titulo" className="tone-dark relative overflow-hidden bg-navy text-white">
       {/* Paisagem no desktop, retrato até 768px — baixa só a versão usada. */}
       <picture>
-        <source media="(max-width: 768px)" srcSet={mobile.props.srcSet} sizes="100vw" />
-        <source media="(min-width: 769px)" srcSet={desktop.props.srcSet} sizes="100vw" />
+        <source media="(max-width: 768px)" srcSet={mobile.props.src} sizes="100vw" />
+        <source media="(min-width: 769px)" srcSet={desktop.props.src} sizes="100vw" />
         <img
           {...desktop.props}
           alt=""
