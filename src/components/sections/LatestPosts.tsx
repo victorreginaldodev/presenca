@@ -16,7 +16,7 @@ export function LatestPosts({ content, posts }: LatestPostsProps) {
 
   return (
     <Section id="blog" tone="muted" labelledBy="blog-titulo">
-      <SectionHeader id="blog-titulo" eyebrow={content.eyebrow} title={content.title} subtitle={content.subtitle} />
+      <SectionHeader id="blog-titulo" eyebrow={content.eyebrow} title={content.title} />
 
       <ul className="mt-10 grid gap-6 sm:mt-14 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
         {posts.map((post) => (

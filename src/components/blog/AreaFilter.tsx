@@ -9,7 +9,7 @@ interface AreaFilterProps {
   allLabel: string;
 }
 
-const chip = "inline-flex min-h-11 touch-manipulation items-center rounded-full border-2 px-5 text-base font-bold no-underline transition-colors motion-reduce:transition-none";
+const chip = "inline-flex min-h-11 touch-manipulation items-center border-2 px-5 text-base font-bold no-underline transition-colors motion-reduce:transition-none";
 const idle = "border-line bg-white text-navy hover:border-navy/40 hover:text-navy";
 const current = "border-navy bg-navy text-white hover:text-white";
 

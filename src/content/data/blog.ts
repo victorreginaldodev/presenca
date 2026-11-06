@@ -53,12 +53,6 @@ export const posts: BlogPost[] = [
     tags: ["Demissão sem justa causa", "Direitos trabalhistas", "Rescisão trabalhista"],
     publishedAt: "2026-11-04",
     featured: true,
-    cover: {
-      url: "/images/atuacao/acoes-trabalhistas.jpg",
-      alt: "Silhueta de um trabalhador da construção ao pôr do sol",
-      width: 1200,
-      height: 630,
-    },
     status: "published",
     body: [
       {
@@ -238,7 +232,6 @@ export const posts: BlogPost[] = [
     field: "trabalhista",
     tags: ["Rescisão indireta", "Direitos trabalhistas", "Justa causa do empregador"],
     publishedAt: "2026-11-04",
-    cover: null,
     status: "published",
     body: [
       {
@@ -396,12 +389,6 @@ export const posts: BlogPost[] = [
     field: "previdenciario",
     tags: ["Aposentadoria por idade", "Regras do INSS 2026", "Cálculo da aposentadoria"],
     publishedAt: "2026-11-04",
-    cover: {
-      url: "/images/atuacao/aposentadoria.jpg",
-      alt: "Casal de aposentados sorrindo enquanto olham o notebook no sofá de casa",
-      width: 1200,
-      height: 630,
-    },
     status: "published",
     body: [
       {

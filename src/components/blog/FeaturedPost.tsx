@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import type { BlogPost } from "@/content/types";
@@ -12,21 +11,10 @@ interface FeaturedPostProps {
   label: string;
 }
 
-/** Artigo em destaque no topo de /blog: card horizontal com mais respiro e título maior. */
+/** Artigo em destaque no topo de /blog: card com mais respiro e título maior. */
 export function FeaturedPost({ post, label }: FeaturedPostProps) {
   return (
-    <article className="relative grid overflow-hidden rounded-3xl border border-line bg-white lg:grid-cols-2">
-      {post.cover && (
-        <Image
-          src={post.cover.url}
-          alt={post.cover.alt}
-          width={post.cover.width}
-          height={post.cover.height}
-          sizes="(min-width: 1024px) 560px, calc(100vw - 2.5rem)"
-          priority
-          className="aspect-[16/9] h-full w-full object-cover lg:aspect-auto"
-        />
-      )}
+    <article className="relative border border-line bg-white">
       <div className="flex flex-col gap-4 p-6 sm:gap-5 sm:p-10 lg:justify-center lg:p-12">
         <p className="eyebrow">{label}</p>
         <ul className="flex flex-wrap items-center gap-2" aria-label="Área e temas">

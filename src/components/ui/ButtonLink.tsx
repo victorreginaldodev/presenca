@@ -15,8 +15,8 @@ const variants: Record<Variant, string> = {
 };
 
 const sizes: Record<Size, string> = {
-  md: "min-h-12 gap-2.5 rounded-xl px-5 py-3 text-base sm:min-h-13 sm:px-6 sm:text-[17px]",
-  lg: "min-h-14 gap-3 rounded-xl px-5 py-3.5 text-[17px] sm:min-h-15 sm:px-8 sm:py-4 sm:text-[19px]",
+  md: "min-h-12 gap-2.5 px-5 py-3 text-base sm:min-h-13 sm:px-6 sm:text-[17px]",
+  lg: "min-h-14 gap-3 px-5 py-3.5 text-[17px] sm:min-h-15 sm:px-8 sm:py-4 sm:text-[19px]",
 };
 
 interface ButtonLinkProps {

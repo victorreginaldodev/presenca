@@ -16,6 +16,11 @@ export type IconName =
   | "health"
   | "accident"
   | "work"
+  | "family"
+  | "baby"
+  | "pointer"
+  | "hand"
+  | "arrow-up"
   | "shield"
   | "eye"
   | "refresh"
@@ -108,24 +113,13 @@ export interface SiteSettings {
   disclaimer: string;
 }
 
-export interface Credential {
-  label: string;
-  value: string;
-}
-
-export interface ProfileValue {
-  icon: IconName;
-  label: string;
-}
-
 export interface LawyerProfile {
   name: string;
   oab: string;
   /** Deixe vazio até o Fernando confirmar. Nunca preencha com estimativa. */
   yearsOfExperience: number | null;
-  credentials: Credential[];
-  values: ProfileValue[];
-  bio: string[];
+  /** Itens de qualificação exibidos no card da seção "Quem é Fernando". */
+  cardItems: string[];
   /** Duas ou três linhas para a caixa do autor no blog e para os dados estruturados. */
   shortBio: string;
   photos: {
@@ -143,9 +137,12 @@ export interface PracticeArea {
   field: LegalField;
   icon: IconName;
   title: string;
+  /** Resumo exibido no card; vazio quando o card mostra só a lista de itens. */
   summary: string;
   /** Situações que ajudam o visitante a se reconhecer. */
   situations: string[];
+  /** Itens curtos exibidos como lista no card da seção Atuação, abaixo do resumo. */
+  cardItems?: string[];
   /** Frase de fechamento abaixo da lista, opcional. */
   note?: string;
   /** Sem imagem, o card mostra só o texto. */
@@ -181,7 +178,6 @@ export interface CallToAction {
 /** Textos da página inicial (global `home` no Payload). */
 export interface HomePage {
   hero: {
-    eyebrow: string;
     title: string;
     lead: string;
     cta: CallToAction;
@@ -191,26 +187,18 @@ export interface HomePage {
     eyebrow: string;
     title: string;
     subtitle: string;
-    linkLabel: string;
-    closingText: string;
     closingCta: CallToAction;
   };
   process: {
-    eyebrow: string;
     title: string;
-    subtitle: string;
     steps: { title: string; text: string }[];
-    /** Aviso em destaque, fora da linha do tempo. */
-    notice: string;
-    cta: CallToAction;
   };
   about: {
     eyebrow: string;
     title: string;
     /** Usado quando o tempo de experiência estiver preenchido; `{anos}` vira o número. */
     titleWithExperience: string;
-    credentialsTitle: string;
-    valuesTitle: string;
+    /** Botão exibido dentro do card aberto. */
     cta: CallToAction;
   };
   reviews: {
@@ -221,23 +209,17 @@ export interface HomePage {
   blog: {
     eyebrow: string;
     title: string;
-    subtitle: string;
     /** Rótulo do link para a lista completa em /blog. */
     linkLabel: string;
   };
   locations: {
     eyebrow: string;
     title: string;
-    text: string;
     legendReach: string;
     legendOffice: string;
   };
   contact: {
-    eyebrow: string;
-    title: string;
-    subtitle: string;
     whatsappTitle: string;
-    whatsappText: string;
     cta: CallToAction;
   };
 }
@@ -280,8 +262,6 @@ export interface BlogPost {
   updatedAt?: string;
   /** Destaque editorial em /blog. Sem nenhum marcado, o mais recente é destacado. */
   featured?: boolean;
-  /** Sem capa, o card e a página mostram só o texto. */
-  cover: Media | null;
   body: PostBlock[];
   /** Perguntas frequentes sobre o tema; viram bloco na página e dados estruturados. */
   faq: FaqItem[];

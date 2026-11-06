@@ -23,6 +23,7 @@ export async function SiteChrome({ children }: { children: React.ReactNode }) {
         logo={settings.logo}
         navigation={navigation}
         whatsappHref={whatsappHref}
+        contact={settings.contact}
       />
       <main id="conteudo" tabIndex={-1} className="focus:outline-none">
         {children}

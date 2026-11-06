@@ -19,7 +19,7 @@ export function PostBody({ blocks, settings }: PostBodyProps) {
             return (
               <p
                 key={index}
-                className="rounded-r-2xl border-l-4 border-gold bg-gold-soft px-5 py-4 text-lg font-semibold text-navy sm:px-6 sm:py-5 sm:text-xl"
+                className="border-l-4 border-gold bg-gold-soft px-5 py-4 text-lg font-semibold text-navy sm:px-6 sm:py-5 sm:text-xl"
               >
                 {block.text}
               </p>
@@ -59,7 +59,7 @@ export function PostBody({ blocks, settings }: PostBodyProps) {
               <aside
                 key={index}
                 aria-label={block.title}
-                className="my-2 flex flex-col gap-4 rounded-2xl border border-line bg-surface p-6 sm:my-4 sm:p-8"
+                className="my-2 flex flex-col gap-4 border border-line bg-surface p-6 sm:my-4 sm:p-8"
               >
                 <p className="text-xl leading-tight font-bold text-navy">{block.title}</p>
                 <p className="text-base text-muted sm:text-[17px]">{block.text}</p>

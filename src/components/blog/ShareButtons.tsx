@@ -12,7 +12,7 @@ interface ShareButtonsProps {
 }
 
 const buttonClass =
-  "inline-flex min-h-11 touch-manipulation items-center gap-2 rounded-xl border border-line bg-white px-4 text-[15px] font-bold text-navy no-underline transition-colors hover:border-navy/40 hover:text-navy motion-reduce:transition-none";
+  "inline-flex min-h-11 touch-manipulation items-center gap-2 border border-line bg-white px-4 text-[15px] font-bold text-navy no-underline transition-colors hover:border-navy/40 hover:text-navy motion-reduce:transition-none";
 
 /** Compartilhar o artigo: WhatsApp (o canal do público) e copiar o link. */
 export function ShareButtons({ title, url }: ShareButtonsProps) {

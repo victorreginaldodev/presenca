@@ -1,7 +1,7 @@
 import type { HomePage, IconName, SiteSettings } from "@/content/types";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Icon } from "@/components/ui/Icon";
-import { Section, SectionHeader } from "@/components/ui/Section";
+import { Section } from "@/components/ui/Section";
 import { breakableEmail, googleMapsUrl, wazeUrl, ZERO_WIDTH_SPACE } from "@/lib/links";
 
 interface ContactProps {
@@ -43,21 +43,22 @@ export function Contact({ content, settings, whatsappHref }: ContactProps) {
 
   return (
     <Section id="contato" labelledBy="contato-titulo" className="border-t border-line">
-      <SectionHeader id="contato-titulo" eyebrow={content.eyebrow} title={content.title} subtitle={content.subtitle} />
+      <h2 id="contato-titulo" className="sr-only">
+        Contato
+      </h2>
 
-      <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-14 sm:gap-6 lg:mt-20 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
+      <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
         {/* Canal principal: WhatsApp */}
-        <div className="tone-dark relative flex flex-col overflow-hidden rounded-2xl bg-navy p-6 text-white sm:rounded-3xl sm:p-10 lg:row-span-2">
+        <div className="tone-dark relative flex flex-col overflow-hidden bg-navy p-6 text-white sm:p-10 lg:row-span-2">
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -right-24 -bottom-24 size-72 rounded-full bg-[radial-gradient(circle,rgba(215,197,123,0.18),transparent_70%)]"
+            className="pointer-events-none absolute -right-24 -bottom-24 size-72 bg-[radial-gradient(circle,rgba(215,197,123,0.18),transparent_70%)]"
           />
-          <span className="flex size-12 items-center justify-center rounded-xl bg-whatsapp text-white sm:size-14 sm:rounded-2xl">
+          <span className="flex size-12 items-center justify-center bg-whatsapp text-white sm:size-14">
             <Icon name="whatsapp" size={26} />
           </span>
           <p className="eyebrow mt-6 sm:mt-8">WhatsApp</p>
           <h3 className="mt-2 text-2xl leading-tight font-bold sm:mt-3 sm:text-3xl">{content.whatsappTitle}</h3>
-          <p className="mt-3 text-base text-mist-light sm:mt-4 sm:text-lg">{content.whatsappText}</p>
           <p className="mt-6 text-2xl font-bold tracking-tight sm:mt-8 sm:text-[2rem]">{contact.whatsappDisplay}</p>
           <div className="mt-auto flex flex-col gap-4 pt-6 sm:pt-10">
             <ButtonLink
@@ -85,9 +86,9 @@ export function Contact({ content, settings, whatsappHref }: ContactProps) {
                 href={channel.href}
                 {...(channel.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 aria-label={`${channel.action}: ${channel.value.replace(ZERO_WIDTH_SPACE, "")}${channel.external ? " (abre em nova aba)" : ""}`}
-                className="group flex h-full touch-manipulation items-center gap-4 rounded-2xl border border-line bg-white p-4 text-ink sm:gap-5 sm:p-6 no-underline transition-colors hover:border-navy/40 hover:text-ink motion-reduce:transition-none sm:flex-col sm:items-start lg:flex-row lg:items-center"
+                className="group flex h-full touch-manipulation items-center gap-4 border border-line bg-white p-4 text-ink sm:gap-5 sm:p-6 no-underline transition-colors hover:border-navy/40 hover:text-ink motion-reduce:transition-none sm:flex-col sm:items-start lg:flex-row lg:items-center"
               >
-                <span className="flex size-11 flex-none items-center justify-center rounded-xl bg-gold-soft text-gold-dark sm:size-12">
+                <span className="flex size-11 flex-none items-center justify-center bg-gold-soft text-gold-dark sm:size-12">
                   <Icon name={channel.icon} size={22} />
                 </span>
                 <span className="flex min-w-0 flex-1 flex-col">
@@ -108,9 +109,9 @@ export function Contact({ content, settings, whatsappHref }: ContactProps) {
         </ul>
 
         {/* Escritório */}
-        <address className="flex flex-col gap-4 rounded-2xl border border-line bg-white p-4 not-italic sm:gap-5 sm:p-6 sm:flex-row sm:items-center sm:justify-between lg:flex-col lg:items-stretch xl:flex-row xl:items-center">
+        <address className="flex flex-col gap-4 border border-line bg-white p-4 not-italic sm:gap-5 sm:p-6 sm:flex-row sm:items-center sm:justify-between lg:flex-col lg:items-stretch xl:flex-row xl:items-center">
           <span className="flex items-start gap-4 sm:gap-5">
-            <span className="flex size-11 flex-none items-center justify-center rounded-xl bg-gold-soft text-gold-dark sm:size-12">
+            <span className="flex size-11 flex-none items-center justify-center bg-gold-soft text-gold-dark sm:size-12">
               <Icon name="pin" size={22} />
             </span>
             <span className="flex flex-col">

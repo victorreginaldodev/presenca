@@ -20,8 +20,8 @@ export const siteSettings: SiteSettings = {
     whatsappDefaultMessage: "Olá, Fernando! Quero conversar sobre o meu caso.",
     phone: "+5534999029545",
     email: "fernandoaraujoadv1@gmail.com",
-    instagramHandle: "@fernandoaraujoo.adv",
-    instagramUrl: "https://www.instagram.com/fernandoaraujoo.adv/",
+    instagramHandle: "@faadvocacia.br",
+    instagramUrl: "https://www.instagram.com/faadvocacia.br/",
   },
   address: {
     // Por extenso: com "26", a busca do Google Maps não encontrava o escritório.

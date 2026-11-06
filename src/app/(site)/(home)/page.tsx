@@ -32,17 +32,17 @@ export default async function HomePage() {
   return (
     <>
       <LegalServiceJsonLd settings={settings} profile={profile} practiceAreas={practiceAreas} />
-      <Hero content={home.hero} ctaHref={whatsapp(home.hero.cta.whatsappMessage)} photo={profile.photos.hero} />
+      <Hero content={home.hero} ctaHref={whatsapp(home.hero.cta.whatsappMessage)} />
       <PracticeAreas
         content={home.practice}
-        areas={practiceAreas.map((area) => ({ ...area, href: whatsapp(area.whatsappMessage) }))}
+        areas={practiceAreas}
         closingHref={whatsapp(home.practice.closingCta.whatsappMessage)}
       />
-      <Process content={home.process} ctaHref={whatsapp(home.process.cta.whatsappMessage)} />
+      <Process content={home.process} />
       <Reviews content={home.reviews} reviews={reviews.items} summary={reviews.summary} />
       <About content={home.about} profile={profile} ctaHref={whatsapp(home.about.cta.whatsappMessage)} />
-      <LatestPosts content={home.blog} posts={posts} />
       <Locations content={home.locations} settings={settings} />
+      <LatestPosts content={home.blog} posts={posts} />
       <Contact content={home.contact} settings={settings} whatsappHref={whatsapp(home.contact.cta.whatsappMessage)} />
     </>
   );

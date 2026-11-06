@@ -24,12 +24,11 @@ export function Locations({ content, settings }: LocationsProps) {
           <h2 id="onde-atendemos-titulo" className="heading-2 text-navy">
             {content.title}
           </h2>
-          <p className="lead text-muted">{content.text}</p>
 
           <ul className="mt-2 flex flex-col gap-5 sm:mt-4 sm:gap-6">
             {settings.serviceModes.map((mode) => (
               <li key={mode.title} className="flex items-start gap-4">
-                <span className="flex size-11 flex-none items-center justify-center rounded-xl bg-gold-soft text-gold-dark sm:size-12">
+                <span className="flex size-11 flex-none items-center justify-center bg-gold-soft text-gold-dark sm:size-12">
                   <Icon name={mode.icon} size={22} />
                 </span>
                 <span className="flex flex-col pt-0.5">

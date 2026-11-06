@@ -16,6 +16,7 @@ export default async function BlogLayout({ children }: { children: React.ReactNo
         logo={settings.logo}
         navigation={blog.navigation}
         whatsappHref={whatsappHref}
+        contact={settings.contact}
       />
       <main id="conteudo" tabIndex={-1} className="focus:outline-none">
         {children}

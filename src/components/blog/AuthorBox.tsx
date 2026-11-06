@@ -14,7 +14,7 @@ export function AuthorBox({ title, profile }: AuthorBoxProps) {
   const photo = profile.photos.about ?? profile.photos.hero;
 
   return (
-    <aside aria-labelledby="autor-titulo" className="mt-12 rounded-2xl border border-line bg-surface p-6 sm:mt-14 sm:p-8">
+    <aside aria-labelledby="autor-titulo" className="mt-12 border border-line bg-surface p-6 sm:mt-14 sm:p-8">
       <p id="autor-titulo" className="eyebrow">
         {title}
       </p>
@@ -26,7 +26,7 @@ export function AuthorBox({ title, profile }: AuthorBoxProps) {
             width={photo.width}
             height={photo.height}
             sizes="96px"
-            className="size-20 flex-none rounded-full object-cover object-top sm:size-24"
+            className="size-20 flex-none object-cover object-top sm:size-24"
           />
         )}
         <div className="flex flex-col gap-2">

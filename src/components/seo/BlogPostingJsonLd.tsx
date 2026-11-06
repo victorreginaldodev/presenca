@@ -35,7 +35,6 @@ export function BlogPostingJsonLd({ post, settings, profile }: BlogPostingJsonLd
       datePublished: post.publishedAt,
       dateModified: post.updatedAt ?? post.publishedAt,
       mainEntityOfPage: url,
-      image: post.cover ? absolute(post.cover.url) : undefined,
       author,
       publisher: {
         "@type": "LegalService",

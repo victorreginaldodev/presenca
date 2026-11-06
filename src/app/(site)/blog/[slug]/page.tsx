@@ -59,7 +59,6 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       authors: [profile.name],
       section: fieldLabels[post.field],
       tags: post.tags,
-      images: post.cover ? [{ url: post.cover.url, alt: post.cover.alt }] : undefined,
     },
     twitter: { card: "summary_large_image", title: post.title, description: post.excerpt },
   };
@@ -131,7 +130,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                       width={authorPhoto.width}
                       height={authorPhoto.height}
                       sizes="40px"
-                      className="size-10 flex-none rounded-full object-cover object-top"
+                      className="size-10 flex-none object-cover object-top"
                     />
                   )}
                   <span>
@@ -151,18 +150,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 </div>
               </div>
             </header>
-
-            {post.cover && (
-              <Image
-                src={post.cover.url}
-                alt={post.cover.alt}
-                width={post.cover.width}
-                height={post.cover.height}
-                sizes="(min-width: 768px) 720px, calc(100vw - 2.5rem)"
-                priority
-                className="mt-8 h-auto w-full rounded-2xl object-cover sm:mt-10 sm:rounded-3xl"
-              />
-            )}
 
             <div className="mt-8 sm:mt-10">
               <PostBody blocks={post.body} settings={settings} />
@@ -184,7 +171,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             <section
               aria-labelledby="cta-titulo"
-              className="tone-dark mt-8 flex flex-col gap-5 rounded-2xl bg-navy p-7 text-white sm:mt-10 sm:p-10"
+              className="tone-dark mt-8 flex flex-col gap-5 bg-navy p-7 text-white sm:mt-10 sm:p-10"
             >
               <h2 id="cta-titulo" className="text-2xl leading-tight font-extrabold text-balance sm:text-3xl">
                 {blog.cta.title}
