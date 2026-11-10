@@ -47,7 +47,14 @@ export type IconName =
   | "info"
   | "link"
   | "external"
-  | "calendar";
+  | "calendar"
+  | "banknote"
+  | "alert"
+  | "message-warning"
+  | "hourglass"
+  | "coffee"
+  | "lock"
+  | "scale";
 
 /** Referência a uma imagem (equivale a um documento da collection `media`). */
 export interface Media {
@@ -233,7 +240,9 @@ export type PostBlock =
   /** Resposta direta à pergunta do título, em 2 ou 3 frases, logo no começo. */
   | { type: "answer"; text: string }
   /** Chamada no meio do texto; a mensagem já vai preenchida no WhatsApp. */
-  | { type: "cta"; title: string; text: string; label: string; whatsappMessage: string };
+  | { type: "cta"; title: string; text: string; label: string; whatsappMessage: string }
+  /** Link interno para uma página relacionada (ex.: landing page do tema). */
+  | { type: "related"; text: string; label: string; href: string };
 
 export interface FaqItem {
   question: string;
@@ -303,4 +312,81 @@ export interface NavItem {
   label: string;
   /** Destino do link: âncora da home ("/#secao") ou rota ("/blog"). */
   href: string;
+}
+
+/**
+ * Conteúdo de uma landing page de campanha (rota /lp/<slug>).
+ * A copy de cada LP fica em `src/content/lp/<slug>.ts`; os componentes em
+ * `src/components/lp/` são genéricos e só recebem estes dados.
+ */
+export interface LandingPage {
+  /** Slug da rota em /lp (também usado no canonical e no sitemap). */
+  slug: string;
+  seo: {
+    /** Título da aba, sem o sufixo do escritório (o template do layout adiciona). */
+    title: string;
+    description: string;
+  };
+  /** Itens do menu da LP: âncoras da própria página. */
+  navigation: NavItem[];
+  /** Rótulo do botão de WhatsApp fixo no cabeçalho da LP. */
+  headerCtaLabel: string;
+  /** Mensagem pré-preenchida em todos os CTAs de WhatsApp da página. */
+  whatsappMessage: string;
+  hero: {
+    eyebrow: string;
+    /** Primeira parte do título; a ênfase em dourado fecha a frase. */
+    title: string;
+    titleEmphasis: string;
+    lead: string;
+    ctaLabel: string;
+    /** Nota de sigilo abaixo do CTA. */
+    note: string;
+  };
+  /** "O que é" + lista de situações que podem dar direito. */
+  explanation: {
+    id: string;
+    eyebrow: string;
+    title: string;
+    lead: string;
+    listTitle: string;
+    situations: { icon: IconName; label: string }[];
+  };
+  /** Verbas que o trabalhador pode receber (lista com tique). */
+  benefits: {
+    id: string;
+    eyebrow: string;
+    title: string;
+    lead: string;
+    ctaLabel: string;
+    items: { label: string; note?: string }[];
+  };
+  /** Entendimento dos tribunais, com destaques (ex.: temas do TST). */
+  jurisprudence: {
+    id: string;
+    eyebrow: string;
+    title: string;
+    lead: string;
+    ctaLabel: string;
+    items: { label: string; value: string; caption: string }[];
+  };
+  /** Situações que, em regra, não dão direito, + card de dúvida com CTA. */
+  notEligible: {
+    id: string;
+    eyebrow: string;
+    title: string;
+    items: { title: string; text: string }[];
+    doubtCard: { text: string; emphasis: string; ctaLabel: string };
+  };
+  faq: {
+    id: string;
+    eyebrow: string;
+    title: string;
+    items: FaqItem[];
+  };
+  finalCta: {
+    title: string;
+    lead: string;
+    ctaLabel: string;
+  };
 }

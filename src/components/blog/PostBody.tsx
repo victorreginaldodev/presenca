@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import type { PostBlock, SiteSettings } from "@/content/types";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Icon } from "@/components/ui/Icon";
@@ -73,6 +75,19 @@ export function PostBody({ blocks, settings }: PostBodyProps) {
                   {block.label}
                 </ButtonLink>
               </aside>
+            );
+          case "related":
+            return (
+              <p key={index} className="border border-line bg-gold-soft/60 px-5 py-4 sm:px-6 sm:py-5">
+                {block.text}{" "}
+                <Link
+                  href={block.href}
+                  className="inline-flex items-center gap-1.5 font-bold whitespace-nowrap text-gold-dark no-underline hover:text-navy"
+                >
+                  {block.label}
+                  <Icon name="arrow-right" size={18} />
+                </Link>
+              </p>
             );
           default:
             return <p key={index}>{block.text}</p>;

@@ -4,12 +4,13 @@ import type { IconName } from "@/content/types";
 
 import { Icon } from "./Icon";
 
-type Variant = "gold" | "navy" | "outline" | "outline-light";
+type Variant = "gold" | "navy" | "whatsapp" | "outline" | "outline-light";
 type Size = "md" | "lg";
 
 const variants: Record<Variant, string> = {
   gold: "bg-gold text-navy hover:bg-gold-hover hover:text-navy",
   navy: "bg-navy text-white hover:bg-navy-soft hover:text-white",
+  whatsapp: "bg-whatsapp text-white hover:bg-[#176b3a] hover:text-white",
   outline: "border-2 border-navy/80 text-navy hover:bg-navy hover:text-white",
   "outline-light": "border-2 border-white/50 text-white hover:bg-white hover:text-navy",
 };

@@ -1,11 +1,11 @@
-import { About } from "@/components/sections/About";
-import { Contact } from "@/components/sections/Contact";
-import { Hero } from "@/components/sections/Hero";
-import { LatestPosts } from "@/components/sections/LatestPosts";
-import { Locations } from "@/components/sections/Locations";
-import { PracticeAreas } from "@/components/sections/PracticeAreas";
-import { Process } from "@/components/sections/Process";
-import { Reviews } from "@/components/sections/Reviews";
+import { Hero } from "@/components/institucional/Hero";
+import { LatestPosts } from "@/components/institucional/LatestPosts";
+import { Locations } from "@/components/institucional/Locations";
+import { PracticeAreas } from "@/components/institucional/PracticeAreas";
+import { About } from "@/components/shared/About";
+import { Contact } from "@/components/shared/Contact";
+import { Process } from "@/components/shared/Process";
+import { Reviews } from "@/components/shared/Reviews";
 import { LegalServiceJsonLd } from "@/components/seo/LegalServiceJsonLd";
 import {
   getHomePage,

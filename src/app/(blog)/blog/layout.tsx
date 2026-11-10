@@ -1,6 +1,6 @@
 import { BlogFooter } from "@/components/blog/BlogFooter";
 import { BlogHeader } from "@/components/blog/BlogHeader";
-import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
+import { FloatingWhatsApp } from "@/components/shared/FloatingWhatsApp";
 import { getBlogPage, getLawyerProfile, getSiteSettings } from "@/lib/content";
 import { contactWhatsappUrl } from "@/lib/links";
 

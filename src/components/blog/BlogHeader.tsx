@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import type { Media, NavItem, SiteSettings } from "@/content/types";
-import { MenuDrawer } from "@/components/layout/MenuDrawer";
+import { MenuDrawer } from "@/components/shared/MenuDrawer";
 import { BrandMark } from "@/components/ui/BrandMark";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Icon } from "@/components/ui/Icon";

@@ -1,12 +1,12 @@
 import type { MetadataRoute } from "next";
 
-import { getPosts } from "@/lib/content";
+import { getLandingPages, getPosts } from "@/lib/content";
 import { getSiteUrl } from "@/lib/site-url";
 
 // Novas rotas públicas devem ser adicionadas aqui.
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const siteUrl = getSiteUrl();
-  const posts = await getPosts();
+  const [posts, landingPages] = await Promise.all([getPosts(), getLandingPages()]);
 
   const sitemap: MetadataRoute.Sitemap = [
     {
@@ -15,6 +15,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 1,
     },
   ];
+
+  for (const lp of landingPages) {
+    sitemap.push({
+      url: new URL(`/lp/${lp.slug}`, siteUrl).toString(),
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    });
+  }
 
   // O blog só entra no sitemap quando há artigos publicados.
   if (posts.length > 0) {

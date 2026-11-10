@@ -140,6 +140,12 @@ export const posts: BlogPost[] = [
         type: "paragraph",
         text: "Eu considero importante conferir o extrato do FGTS, principalmente para verificar se os depósitos do contrato foram realizados corretamente. Também é necessário observar a modalidade de saque escolhida pelo trabalhador, pois ela pode influenciar a disponibilidade dos valores. Essa análise ajuda a identificar possíveis diferenças que mereçam esclarecimento.",
       },
+      {
+        type: "related",
+        text: "Se a empresa deixa de depositar o FGTS ou descumpre outras obrigações do contrato, pode caber rescisão indireta.",
+        label: "Entenda a rescisão indireta",
+        href: "/lp/rescisao-indireta",
+      },
       { type: "heading", text: "Qual é o prazo para a empresa pagar a rescisão?" },
       {
         type: "paragraph",
@@ -312,6 +318,12 @@ export const posts: BlogPost[] = [
         label: "Enviar extrato do FGTS pelo WhatsApp",
         whatsappMessage:
           "Olá, Fernando! Li o artigo sobre rescisão indireta e gostaria de enviar meu extrato do FGTS para receber orientação sobre a minha situação trabalhista.",
+      },
+      {
+        type: "related",
+        text: "Quer ir direto ao ponto? A página dedicada resume as situações que dão direito e as verbas da rescisão indireta.",
+        label: "Ver a página de rescisão indireta",
+        href: "/lp/rescisao-indireta",
       },
       { type: "heading", text: "Quais direitos o trabalhador recebe na rescisão indireta?" },
       {

@@ -9,7 +9,7 @@ import "./globals.css";
 // Nunito Sans (SIL Open Font License 1.1), subconjunto latino, fonte variável.
 // Servida pelo próprio site, sem chamadas ao Google Fonts.
 const nunitoSans = localFont({
-  src: "../fonts/nunito-sans-latin.woff2",
+  src: "./fonts/nunito-sans-latin.woff2",
   weight: "400 900",
   variable: "--font-nunito-sans",
   display: "swap",
@@ -50,8 +50,8 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
-// Cabeçalho e rodapé ficam nos layouts de cada área: `(home)` usa o SiteChrome
-// do site institucional e `blog/` tem cabeçalho e rodapé próprios.
+// Cabeçalho e rodapé ficam nos layouts de cada área: `(institucional)` usa o
+// SiteChrome, `(blog)` tem cabeçalho e rodapé próprios e `(lp)` usa o LpChrome.
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className={nunitoSans.variable}>

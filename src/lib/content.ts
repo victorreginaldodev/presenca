@@ -18,10 +18,12 @@ import { practiceAreas } from "@/content/data/practice-areas";
 import { lawyerProfile } from "@/content/data/profile";
 import { reviewSummary, reviews } from "@/content/data/reviews";
 import { siteSettings } from "@/content/data/site-settings";
+import { landingPages } from "@/content/lp";
 import type {
   BlogPage,
   BlogPost,
   HomePage,
+  LandingPage,
   LegalField,
   LawyerProfile,
   NavItem,
@@ -90,3 +92,10 @@ export const getNavigation = cache(async (): Promise<NavItem[]> => {
       (item.href !== "/blog" || publishedPosts.length > 0),
   );
 });
+
+/** Landing pages de campanha, usadas no sitemap. */
+export const getLandingPages = cache(async (): Promise<LandingPage[]> => Object.values(landingPages));
+
+export const getLandingPage = cache(
+  async (slug: string): Promise<LandingPage | null> => landingPages[slug] ?? null,
+);

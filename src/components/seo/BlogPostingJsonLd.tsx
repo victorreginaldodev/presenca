@@ -35,6 +35,7 @@ export function BlogPostingJsonLd({ post, settings, profile }: BlogPostingJsonLd
       datePublished: post.publishedAt,
       dateModified: post.updatedAt ?? post.publishedAt,
       mainEntityOfPage: url,
+      image: profile.photos.hero ? absolute(profile.photos.hero.url) : undefined,
       author,
       publisher: {
         "@type": "LegalService",
