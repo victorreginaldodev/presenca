@@ -8,7 +8,7 @@ import type { LandingPage } from "../types";
  * a resposta sobre atendimento online/cidades atendidas. Substituir pelos
  * textos confirmados.
  */
-export const rescisaoIndireta: LandingPage = {
+export const rescisaoIndireta = {
   slug: "rescisao-indireta",
   seo: {
     title: "Rescisão Indireta",
@@ -152,4 +152,4 @@ export const rescisaoIndireta: LandingPage = {
     lead: "Conte o que está acontecendo no seu trabalho. Um advogado analisa o seu caso e explica quais são os seus direitos.",
     ctaLabel: "Quero analisar meu caso",
   },
-};
+} satisfies LandingPage;

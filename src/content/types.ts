@@ -54,7 +54,16 @@ export type IconName =
   | "hourglass"
   | "coffee"
   | "lock"
-  | "scale";
+  | "scale"
+  | "file-x"
+  | "calendar-x"
+  | "search"
+  | "swap"
+  | "repeat"
+  | "file-text"
+  | "activity"
+  | "clipboard"
+  | "chart";
 
 /** Referência a uma imagem (equivale a um documento da collection `media`). */
 export interface Media {
@@ -314,10 +323,142 @@ export interface NavItem {
   href: string;
 }
 
+/** Primeira dobra da LP. */
+export interface LpHeroContent {
+  eyebrow: string;
+  /** Primeira parte do título; a ênfase em dourado fecha a frase. */
+  title: string;
+  titleEmphasis: string;
+  lead: string;
+  ctaLabel: string;
+  /** Nota de sigilo abaixo do CTA. */
+  note: string;
+}
+
+/** "O que é" + lista de situações que podem dar direito. */
+export interface LpSituationsContent {
+  id: string;
+  eyebrow: string;
+  title: string;
+  lead: string;
+  listTitle: string;
+  situations: { icon: IconName; label: string }[];
+}
+
+/** Lista com tique do que a pessoa pode receber (verbas, documentos etc.). */
+export interface LpBenefitsContent {
+  id: string;
+  eyebrow: string;
+  title: string;
+  lead: string;
+  ctaLabel: string;
+  items: { label: string; note?: string }[];
+}
+
+/** Entendimento dos tribunais, com destaques (ex.: temas do TST). */
+export interface LpJurisprudenceContent {
+  id: string;
+  eyebrow: string;
+  title: string;
+  lead: string;
+  ctaLabel: string;
+  items: { label: string; value: string; caption: string }[];
+}
+
+/** Requisitos numerados para ter direito (ex.: os três requisitos do INSS). */
+export interface LpRequirementsContent {
+  id: string;
+  eyebrow: string;
+  title: string;
+  lead: string;
+  items: { title: string; subtitle?: string; text: string }[];
+}
+
+/** Cartões comparando tipos de benefício, + nota de fechamento com ícone. */
+export interface LpBenefitTypesContent {
+  id: string;
+  eyebrow: string;
+  title: string;
+  lead: string;
+  cards: {
+    title: string;
+    /** Nome antigo/popular entre parênteses, quando houver. */
+    subtitle?: string;
+    /** Códigos do benefício (ex.: "Cód. 31 (previdenciário) ou 91 (acidentário)"). */
+    code: string;
+    items: string[];
+  }[];
+  note: { icon: IconName; title: string; text: string };
+}
+
+/** Comparativo lado a lado (ex.: acidentário x previdenciário) + faixa com CTA. */
+export interface LpComparisonContent {
+  id: string;
+  eyebrow: string;
+  title: string;
+  columns: {
+    title: string;
+    /** Códigos ou legenda sob o título (ex.: "(cód. 91, 92 e 94)"). */
+    code?: string;
+    lead?: string;
+    /** "check" = itens positivos com tique dourada; "dot" = itens neutros com ponto. */
+    marker: "check" | "dot";
+    /** Destaca a coluna com borda e código em dourado. */
+    highlighted?: boolean;
+    items: string[];
+  }[];
+  /** Faixa escura abaixo das colunas, com CTA. */
+  band: { text: string; emphasis: string; ctaLabel: string };
+}
+
+/** Situações comuns de pedido negado/cortado, com ícones + fecho com CTA. */
+export interface LpDeniedContent {
+  id: string;
+  eyebrow: string;
+  title: string;
+  lead: string;
+  items: { icon: IconName; label: string }[];
+  closingText: string;
+  ctaLabel: string;
+}
+
+/** Checklist de documentos, com nota de orientação. */
+export interface LpDocumentsContent {
+  id: string;
+  eyebrow: string;
+  title: string;
+  /** Aviso destacado (ex.: "Não tem tudo? Sem problema..."). */
+  note: string;
+  items: { icon: IconName; label: string }[];
+}
+
+/** Situações que, em regra, não dão direito, + chamada de dúvida com CTA abaixo da grade. */
+export interface LpNotEligibleContent {
+  id: string;
+  eyebrow: string;
+  title: string;
+  items: { title: string; text: string }[];
+  doubtCard: { text: string; emphasis: string; ctaLabel: string };
+}
+
+export interface LpFaqContent {
+  id: string;
+  eyebrow: string;
+  title: string;
+  items: FaqItem[];
+}
+
+export interface LpFinalCtaContent {
+  title: string;
+  lead: string;
+  ctaLabel: string;
+}
+
 /**
  * Conteúdo de uma landing page de campanha (rota /lp/<slug>).
  * A copy de cada LP fica em `src/content/lp/<slug>.ts`; os componentes em
- * `src/components/lp/` são genéricos e só recebem estes dados.
+ * `src/components/lp/` são genéricos e só recebem estes dados. Cada LP monta a
+ * página só com as seções de que precisa — por isso elas são opcionais.
  */
 export interface LandingPage {
   /** Slug da rota em /lp (também usado no canonical e no sitemap). */
@@ -333,60 +474,16 @@ export interface LandingPage {
   headerCtaLabel: string;
   /** Mensagem pré-preenchida em todos os CTAs de WhatsApp da página. */
   whatsappMessage: string;
-  hero: {
-    eyebrow: string;
-    /** Primeira parte do título; a ênfase em dourado fecha a frase. */
-    title: string;
-    titleEmphasis: string;
-    lead: string;
-    ctaLabel: string;
-    /** Nota de sigilo abaixo do CTA. */
-    note: string;
-  };
-  /** "O que é" + lista de situações que podem dar direito. */
-  explanation: {
-    id: string;
-    eyebrow: string;
-    title: string;
-    lead: string;
-    listTitle: string;
-    situations: { icon: IconName; label: string }[];
-  };
-  /** Verbas que o trabalhador pode receber (lista com tique). */
-  benefits: {
-    id: string;
-    eyebrow: string;
-    title: string;
-    lead: string;
-    ctaLabel: string;
-    items: { label: string; note?: string }[];
-  };
-  /** Entendimento dos tribunais, com destaques (ex.: temas do TST). */
-  jurisprudence: {
-    id: string;
-    eyebrow: string;
-    title: string;
-    lead: string;
-    ctaLabel: string;
-    items: { label: string; value: string; caption: string }[];
-  };
-  /** Situações que, em regra, não dão direito, + card de dúvida com CTA. */
-  notEligible: {
-    id: string;
-    eyebrow: string;
-    title: string;
-    items: { title: string; text: string }[];
-    doubtCard: { text: string; emphasis: string; ctaLabel: string };
-  };
-  faq: {
-    id: string;
-    eyebrow: string;
-    title: string;
-    items: FaqItem[];
-  };
-  finalCta: {
-    title: string;
-    lead: string;
-    ctaLabel: string;
-  };
+  hero: LpHeroContent;
+  explanation?: LpSituationsContent;
+  requirements?: LpRequirementsContent;
+  benefits?: LpBenefitsContent;
+  benefitTypes?: LpBenefitTypesContent;
+  comparison?: LpComparisonContent;
+  denied?: LpDeniedContent;
+  documents?: LpDocumentsContent;
+  jurisprudence?: LpJurisprudenceContent;
+  notEligible?: LpNotEligibleContent;
+  faq: LpFaqContent;
+  finalCta: LpFinalCtaContent;
 }

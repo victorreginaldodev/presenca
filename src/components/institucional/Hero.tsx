@@ -21,7 +21,7 @@ export function Hero({ content, ctaHref }: HeroProps) {
     fetchPriority: "high",
   });
   const mobile = getImageProps({
-    src: "/images/hero/hero-fernando-v8-mobile.webp",
+    src: "/assets/WhatsApp%20Image%202026-11-06%20at%2014.45.45%20(1).jpeg",
     alt: "",
     fill: true,
     sizes: "100vw",

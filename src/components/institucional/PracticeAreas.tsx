@@ -22,7 +22,6 @@ export function PracticeAreas({ content, areas, closingHref }: PracticeAreasProp
           href={closingHref}
           external
           size="lg"
-          variant="navy"
           iconStart="whatsapp"
           className="w-full sm:w-fit"
           ariaLabel={`${content.closingCta.label} pelo WhatsApp (abre em nova aba)`}

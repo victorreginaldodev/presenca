@@ -1,12 +1,12 @@
 import Image from "next/image";
 
-import type { LandingPage, Media } from "@/content/types";
+import type { LpHeroContent, Media } from "@/content/types";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Icon } from "@/components/ui/Icon";
 import { Container } from "@/components/ui/Section";
 
 interface LpHeroProps {
-  content: LandingPage["hero"];
+  content: LpHeroContent;
   /** Sem foto, o hero mostra só o texto. */
   photo: Media | null;
   ctaHref: string;
@@ -39,7 +39,6 @@ export function LpHero({ content, photo, ctaHref }: LpHeroProps) {
             <ButtonLink
               href={ctaHref}
               external
-              variant="whatsapp"
               size="lg"
               iconStart="whatsapp"
               className="w-full sm:w-fit"

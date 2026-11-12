@@ -1,9 +1,9 @@
-import type { LandingPage } from "@/content/types";
+import type { LpJurisprudenceContent } from "@/content/types";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Section } from "@/components/ui/Section";
 
 interface LpJurisprudenceProps {
-  content: LandingPage["jurisprudence"];
+  content: LpJurisprudenceContent;
   ctaHref: string;
 }
 
@@ -21,7 +21,6 @@ export function LpJurisprudence({ content, ctaHref }: LpJurisprudenceProps) {
           <ButtonLink
             href={ctaHref}
             external
-            variant="whatsapp"
             size="lg"
             iconStart="whatsapp"
             className="mt-7 w-full sm:mt-8 sm:w-fit"

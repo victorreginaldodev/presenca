@@ -41,7 +41,7 @@ export function BlogHeader({ name, oab, logo, navigation, whatsappHref, contact 
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-white">
-      <div className="mx-auto flex min-h-14 w-full max-w-[80rem] items-center justify-between gap-4 pr-[max(1.25rem,env(safe-area-inset-right))] pl-[max(1.25rem,env(safe-area-inset-left))] sm:min-h-16 sm:gap-6 sm:pr-[max(2rem,env(safe-area-inset-right))] sm:pl-[max(2rem,env(safe-area-inset-left))]">
+      <div className="mx-auto flex min-h-14 w-full max-w-site items-center justify-between gap-4 pr-[max(1.25rem,env(safe-area-inset-right))] pl-[max(1.25rem,env(safe-area-inset-left))] sm:min-h-16 sm:gap-6 sm:pr-[max(2rem,env(safe-area-inset-right))] sm:pl-[max(2rem,env(safe-area-inset-left))]">
         <div className="flex min-w-0 items-center gap-3 sm:gap-4">
           <Link href="/" className="min-w-0 no-underline" aria-label={`${name} Advocacia, ir para o site`}>
             <BrandMark logo={logo} title={name} subtitle={`Advocacia · ${oab}`} tone="light" />
@@ -54,23 +54,10 @@ export function BlogHeader({ name, oab, logo, navigation, whatsappHref, contact 
           </Link>
         </div>
 
-        <nav aria-label="Menu do blog" className="hidden lg:block">
-          <ul className="flex gap-6 text-base font-semibold xl:gap-7">
-            {links.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href} className="whitespace-nowrap text-ink no-underline hover:text-gold-dark">
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
         <div className="flex items-center gap-2 sm:gap-3">
           <ButtonLink
             href={whatsappHref}
             external
-            variant="navy"
             iconStart="whatsapp"
             className="whitespace-nowrap max-sm:hidden"
             ariaLabel="Falar no WhatsApp (abre em nova aba)"
@@ -82,13 +69,11 @@ export function BlogHeader({ name, oab, logo, navigation, whatsappHref, contact 
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Falar no WhatsApp (abre em nova aba)"
-            className="flex size-12 touch-manipulation items-center justify-center bg-navy text-white hover:bg-navy-soft hover:text-white sm:hidden"
+            className="flex size-12 touch-manipulation items-center justify-center bg-gold text-navy hover:bg-gold-hover hover:text-navy sm:hidden"
           >
             <Icon name="whatsapp" size={24} />
           </a>
-          <div className="lg:hidden">
-            <MenuDrawer links={links} socials={socials} tone="light" />
-          </div>
+          <MenuDrawer links={links} socials={socials} tone="light" />
         </div>
       </div>
     </header>

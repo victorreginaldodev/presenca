@@ -1,10 +1,10 @@
-import type { LandingPage } from "@/content/types";
+import type { LpBenefitsContent } from "@/content/types";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Icon } from "@/components/ui/Icon";
 import { Section } from "@/components/ui/Section";
 
 interface LpBenefitsProps {
-  content: LandingPage["benefits"];
+  content: LpBenefitsContent;
   ctaHref: string;
 }
 
@@ -22,7 +22,6 @@ export function LpBenefits({ content, ctaHref }: LpBenefitsProps) {
           <ButtonLink
             href={ctaHref}
             external
-            variant="whatsapp"
             size="lg"
             iconStart="whatsapp"
             className="mt-7 w-full sm:mt-8 sm:w-fit"

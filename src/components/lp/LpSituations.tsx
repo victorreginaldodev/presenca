@@ -1,9 +1,9 @@
-import type { LandingPage } from "@/content/types";
+import type { LpSituationsContent } from "@/content/types";
 import { Icon } from "@/components/ui/Icon";
 import { Section } from "@/components/ui/Section";
 
 interface LpSituationsProps {
-  content: LandingPage["explanation"];
+  content: LpSituationsContent;
 }
 
 /** "O que é" + grade de situações que podem dar direito. */

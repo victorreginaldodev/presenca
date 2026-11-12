@@ -1,5 +1,6 @@
 import type { LandingPage } from "../types";
 
+import { beneficiosPorIncapacidade } from "./beneficios-por-incapacidade";
 import { rescisaoIndireta } from "./rescisao-indireta";
 
 /**
@@ -8,4 +9,5 @@ import { rescisaoIndireta } from "./rescisao-indireta";
  */
 export const landingPages: Record<string, LandingPage> = {
   [rescisaoIndireta.slug]: rescisaoIndireta,
+  [beneficiosPorIncapacidade.slug]: beneficiosPorIncapacidade,
 };

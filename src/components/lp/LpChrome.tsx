@@ -37,7 +37,6 @@ export async function LpChrome({ navigation, homeHref, whatsappHref, whatsappCta
         contact={settings.contact}
         homeHref={homeHref}
         whatsappCtaLabel={whatsappCtaLabel}
-        drawerOnly
       />
       <main id="conteudo" tabIndex={-1} className="focus:outline-none">
         {children}

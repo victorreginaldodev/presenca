@@ -1,8 +1,8 @@
-import type { LandingPage } from "@/content/types";
+import type { LpFaqContent } from "@/content/types";
 import { Section } from "@/components/ui/Section";
 
 interface LpFaqProps {
-  content: LandingPage["faq"];
+  content: LpFaqContent;
 }
 
 function isPlaceholder(answer: string): boolean {

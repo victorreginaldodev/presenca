@@ -1,13 +1,13 @@
-import type { LandingPage } from "@/content/types";
+import type { LpNotEligibleContent } from "@/content/types";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Section } from "@/components/ui/Section";
 
 interface LpNotEligibleProps {
-  content: LandingPage["notEligible"];
+  content: LpNotEligibleContent;
   ctaHref: string;
 }
 
-/** Situações que em regra não dão direito, numeradas, + card de dúvida com CTA. */
+/** Situações que em regra não dão direito, numeradas, com CTA de dúvida abaixo da grade. */
 export function LpNotEligible({ content, ctaHref }: LpNotEligibleProps) {
   return (
     <Section id={content.id} tone="muted" labelledBy={`${content.id}-titulo`}>
@@ -28,22 +28,23 @@ export function LpNotEligible({ content, ctaHref }: LpNotEligibleProps) {
             <p className="text-[15px] leading-relaxed text-muted">{item.text}</p>
           </li>
         ))}
-        <li className="tone-dark flex flex-col justify-between gap-5 border border-navy bg-navy p-6">
-          <p className="text-[19px] leading-snug font-extrabold text-white">
-            {content.doubtCard.text} <span className="text-gold">{content.doubtCard.emphasis}</span>
-          </p>
-          <ButtonLink
-            href={ctaHref}
-            external
-            variant="whatsapp"
-            iconStart="whatsapp"
-            className="w-full"
-            ariaLabel={`${content.doubtCard.ctaLabel} pelo WhatsApp (abre em nova aba)`}
-          >
-            {content.doubtCard.ctaLabel}
-          </ButtonLink>
-        </li>
       </ol>
+
+      <div className="mx-auto mt-9 flex max-w-2xl flex-col items-center gap-5 text-center sm:mt-11 sm:gap-6">
+        <p className="text-xl leading-snug font-extrabold text-navy sm:text-2xl">
+          {content.doubtCard.text} <span className="text-gold-dark">{content.doubtCard.emphasis}</span>
+        </p>
+        <ButtonLink
+          href={ctaHref}
+          external
+          size="lg"
+          iconStart="whatsapp"
+          className="w-full sm:w-fit"
+          ariaLabel={`${content.doubtCard.ctaLabel} pelo WhatsApp (abre em nova aba)`}
+        >
+          {content.doubtCard.ctaLabel}
+        </ButtonLink>
+      </div>
     </Section>
   );
 }

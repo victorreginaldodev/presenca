@@ -1,9 +1,9 @@
-import type { LandingPage } from "@/content/types";
+import type { LpFinalCtaContent } from "@/content/types";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Section } from "@/components/ui/Section";
 
 interface LpFinalCtaProps {
-  content: LandingPage["finalCta"];
+  content: LpFinalCtaContent;
   ctaHref: string;
 }
 
@@ -20,7 +20,6 @@ export function LpFinalCta({ content, ctaHref }: LpFinalCtaProps) {
         <ButtonLink
           href={ctaHref}
           external
-          variant="whatsapp"
           size="lg"
           iconStart="whatsapp"
           className="mt-8 w-full sm:w-fit"
